@@ -374,35 +374,26 @@ const About = () => (
         </p>
       </FadeLeft>
 
-      {/* Git Diff Creative Design Window */}
-      <FadeUp delay={0.15} className="about-diff">
-        <div className="diff-header">
-           <GitPullRequest size={15} style={{ color: '#2da44e' }} /> 
-           <span>Pull Request #1: Initialize Developer</span>
+      {/* Clean Code About Me Window */}
+      <FadeUp delay={0.15} className="about-code-clean">
+        <div className="acc-header">
+           <Code2 size={15} style={{ color: '#888' }} /> 
+           <span>about_me.js</span>
         </div>
-        <div className="diff-body">
-           <div className="diff-line removed">
-             <span className="diff-sign">-</span>
-             <span className="diff-text">status: <span className="diff-str">"Learning the basics",</span></span>
-           </div>
-           <div className="diff-line added">
-             <span className="diff-sign">+</span>
-             <span className="diff-text">status: <span className="diff-str">"Building impactful, scalable apps",</span></span>
-           </div>
-           <div className="diff-line empty"></div>
-           <div className="diff-line removed">
-             <span className="diff-sign">-</span>
-             <span className="diff-text">skills: <span className="diff-keyword">null</span>,</span>
-           </div>
-           <div className="diff-line added">
-             <span className="diff-sign">+</span>
-             <span className="diff-text">skills: [<span className="diff-str">"React"</span>, <span className="diff-str">"Node.js"</span>, <span className="diff-str">"IoT Devices"</span>],</span>
-           </div>
-           <div className="diff-line empty"></div>
-           <div className="diff-line added">
-             <span className="diff-sign">+</span>
-             <span className="diff-text">goal: <span className="diff-str">"To become a highly skilled software engineer."</span></span>
-           </div>
+        <div className="acc-body">
+<pre><code>
+<span className="acc-keyword">const</span> <span className="acc-var">yogesh</span> = {'{'}
+  status: <span className="acc-str">"Engineering Student"</span>,
+  focus: <span className="acc-str">"Scalable Web & IoT"</span>,
+  passion: <span className="acc-str">"Building impactful software."</span>
+{'}'};
+
+<span className="acc-keyword">while</span> (<span className="acc-var">yogesh</span>.learning) {'{'}
+  <span className="acc-fn">code</span>();
+  <span className="acc-fn">build</span>();
+  <span className="acc-fn">deploy</span>();
+{'}'}
+</code></pre>
         </div>
       </FadeUp>
     </div>
