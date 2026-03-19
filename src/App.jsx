@@ -593,8 +593,14 @@ const Certificates = () => (
                 whileHover={{ y: -6, boxShadow: '0 20px 40px rgba(0,0,0,0.06)' }}
                 transition={{ type: 'spring', stiffness: 300, damping: 20 }}
               >
-                <div className="cert-thumb">
-                  <FileText className="cert-thumb-icon" size={42} strokeWidth={1.5} />
+                <div className="cert-thumb" style={{ padding: 0 }}>
+                  <iframe
+                    src={`${c.file}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`}
+                    className="cert-pdf-frame"
+                    title={c.name}
+                    tabIndex={-1}
+                  />
+                  <div className="cert-thumb-overlay" />
                   <span className="cert-thumb-badge">PDF</span>
                 </div>
                 <div className="cert-content">

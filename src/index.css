@@ -808,14 +808,24 @@ h1.hero-name {
   background: radial-gradient(circle at center, rgba(0,0,0,0.03) 0%, transparent 70%);
 }
 
-.cert-thumb-icon {
-  color: #ccc;
-  transition: transform 0.4s, color 0.4s;
+.cert-pdf-frame {
+  width: 100%;
+  height: 100%;
+  border: none;
+  pointer-events: none; /* Important to let parent <a> tag receive clicks */
+  background: #fff;
 }
 
-.cert-card:hover .cert-thumb-icon {
-  transform: scale(1.1) rotate(-3deg);
-  color: var(--text-2);
+.cert-thumb-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: transparent;
+  z-index: 2;
+  transition: background 0.3s;
+}
+
+.cert-card:hover .cert-thumb-overlay {
+  background: rgba(0,0,0,0.02);
 }
 
 .cert-thumb-badge {
