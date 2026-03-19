@@ -720,13 +720,35 @@ h1.hero-name {
 
 .project-card:hover::before { transform: scaleY(1); }
 
+.pc-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.project-corner-icon {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  color: var(--border-dark);
+  opacity: 0.15;
+  transition: transform 0.4s ease, color 0.4s ease, opacity 0.4s;
+  z-index: 0;
+}
+
+.project-card:hover .project-corner-icon {
+  color: var(--text-3);
+  opacity: 0.4;
+  transform: scale(1.2) rotate(-8deg);
+}
+
 .project-num {
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--text-3);
-  margin-bottom: 14px;
 }
 
 .project-card h3 {
@@ -1426,6 +1448,18 @@ h1.hero-name {
   30% { width: 40%; }
   70% { width: 75%; }
   100% { width: 100%; }
+}
+
+.splash-draw-path {
+  stroke-dasharray: 2000;
+  stroke-dashoffset: 2000;
+  animation: drawFlow 2.8s ease-in-out forwards;
+}
+
+@keyframes drawFlow {
+  0% { stroke-dashoffset: 2000; fill: transparent; stroke: #fff; stroke-width: 2px; }
+  60% { stroke-dashoffset: 0; fill: transparent; stroke: #fff; stroke-width: 2px; }
+  100% { stroke-dashoffset: 0; fill: #fff; stroke: transparent; }
 }
 
 /* ===== SCROLL REVEAL (class applied via JS) ===== */

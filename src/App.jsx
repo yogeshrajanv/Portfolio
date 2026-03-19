@@ -3,49 +3,29 @@ import { motion, AnimatePresence, useInView } from 'framer-motion'
 import {
   Github, Linkedin, Instagram, Mail, ExternalLink,
   Download, ChevronRight, Code2, Database, Monitor,
-  Award, Send, ArrowRight, Menu, X, Terminal, FileText
+  Award, Send, ArrowRight, Menu, X, Terminal, FileText,
+  Utensils, BusFront, Droplets
 } from 'lucide-react'
 
 /* ============================================================
-   Y LOGO — inline white SVG with drawing animation capability
+   Y LOGO — inline white SVG
    ============================================================ */
+const paths = [
+  "M188.592957,167.174133 C179.844940,167.130692 171.096786,167.050507 162.349121,167.088135 C161.195602,167.093094 160.044678,167.699631 158.326981,168.366837 C158.160690,169.514786 157.419662,171.147629 157.916306,171.736252 C163.349976,178.176239 168.806595,184.614456 174.597900,190.730347 C180.740921,197.217682 187.404968,203.210770 193.567719,209.680481 C204.185654,220.827240 214.770233,232.017014 225.000961,243.516006 C229.263062,248.306458 235.122971,252.414139 235.032471,260.923279 C235.021027,284.304565 234.988068,307.685883 235.042740,331.067017 C235.046738,332.771057 235.686249,334.473633 236.515686,336.524811 C246.824585,330.950256 257.183624,325.464630 267.390228,319.708618 C268.983826,318.809906 269.883057,316.679932 271.497162,314.822906 C271.749725,314.581665 271.874023,314.286438 271.943329,313.303162 C271.965027,312.878265 271.986725,312.453339 272.010956,311.085114 C272.008911,293.039856 272.006897,274.994568 271.974518,256.208405 C268.216919,250.857651 264.972778,245.040604 260.611298,240.238297 C243.354813,221.237503 225.896210,202.413620 208.186356,183.835068 C202.472107,177.840515 197.916168,170.163467 188.592957,167.174133 z",
+  "M312.359406,168.002945 C309.467560,169.758316 306.086487,171.027496 303.771820,173.356476 C295.480682,181.698959 287.568817,190.417526 279.478668,198.960861 C272.244568,206.600159 264.977997,214.208847 257.696289,221.802795 C255.573990,224.016113 255.536560,226.018951 257.708618,228.287888 C262.067749,232.841370 266.265289,237.549194 270.594025,242.132385 C271.910034,243.525772 273.437500,244.719482 276.013794,247.033829 C280.189728,242.313370 283.959595,237.909821 287.882141,233.646744 C296.708801,224.053833 305.590027,214.510773 314.488281,204.984116 C324.442047,194.327438 334.500702,183.767212 344.306152,172.976410 C345.132446,172.067108 344.387421,169.729965 343.885162,167.274796 C335.133820,167.185318 326.382477,167.049133 317.631134,167.051178 C316.128815,167.051529 314.626617,167.640762 312.359406,168.002945 z",
+  "M246.435791,217.007721 C247.639404,218.009857 248.843018,219.011978 250.248123,220.181870 C251.729065,218.207977 252.631699,216.564438 253.937653,215.357208 C256.544159,212.947800 255.979416,210.677933 253.918030,208.482620 C242.323044,196.134308 230.800797,183.713837 218.997742,171.566711 C214.357758,166.791473 208.345490,167.479950 201.587204,168.698654 C216.768005,185.052231 231.362793,200.774506 246.435791,217.007721 z"
+]
+
 const YLogoWhite = ({ size = 120, animateDraw = false }) => {
-  const draw = {
-    hidden: { pathLength: 0, opacity: 0, fill: "rgba(255, 255, 255, 0)" },
-    visible: { 
-      pathLength: 1, 
-      opacity: 1, 
-      fill: "rgba(255, 255, 255, 1)",
-      transition: { 
-        pathLength: { duration: 1.8, ease: "easeInOut" },
-        opacity: { duration: 0.5 },
-        fill: { duration: 0.8, ease: "easeIn", delay: 1.5 }
-      } 
-    }
-  }
-
-  const paths = [
-    "M188.592957,167.174133 C179.844940,167.130692 171.096786,167.050507 162.349121,167.088135 C161.195602,167.093094 160.044678,167.699631 158.326981,168.366837 C158.160690,169.514786 157.419662,171.147629 157.916306,171.736252 C163.349976,178.176239 168.806595,184.614456 174.597900,190.730347 C180.740921,197.217682 187.404968,203.210770 193.567719,209.680481 C204.185654,220.827240 214.770233,232.017014 225.000961,243.516006 C229.263062,248.306458 235.122971,252.414139 235.032471,260.923279 C235.021027,284.304565 234.988068,307.685883 235.042740,331.067017 C235.046738,332.771057 235.686249,334.473633 236.515686,336.524811 C246.824585,330.950256 257.183624,325.464630 267.390228,319.708618 C268.983826,318.809906 269.883057,316.679932 271.497162,314.822906 C271.749725,314.581665 271.874023,314.286438 271.943329,313.303162 C271.965027,312.878265 271.986725,312.453339 272.010956,311.085114 C272.008911,293.039856 272.006897,274.994568 271.974518,256.208405 C268.216919,250.857651 264.972778,245.040604 260.611298,240.238297 C243.354813,221.237503 225.896210,202.413620 208.186356,183.835068 C202.472107,177.840515 197.916168,170.163467 188.592957,167.174133 z",
-    "M312.359406,168.002945 C309.467560,169.758316 306.086487,171.027496 303.771820,173.356476 C295.480682,181.698959 287.568817,190.417526 279.478668,198.960861 C272.244568,206.600159 264.977997,214.208847 257.696289,221.802795 C255.573990,224.016113 255.536560,226.018951 257.708618,228.287888 C262.067749,232.841370 266.265289,237.549194 270.594025,242.132385 C271.910034,243.525772 273.437500,244.719482 276.013794,247.033829 C280.189728,242.313370 283.959595,237.909821 287.882141,233.646744 C296.708801,224.053833 305.590027,214.510773 314.488281,204.984116 C324.442047,194.327438 334.500702,183.767212 344.306152,172.976410 C345.132446,172.067108 344.387421,169.729965 343.885162,167.274796 C335.133820,167.185318 326.382477,167.049133 317.631134,167.051178 C316.128815,167.051529 314.626617,167.640762 312.359406,168.002945 z",
-    "M246.435791,217.007721 C247.639404,218.009857 248.843018,219.011978 250.248123,220.181870 C251.729065,218.207977 252.631699,216.564438 253.937653,215.357208 C256.544159,212.947800 255.979416,210.677933 253.918030,208.482620 C242.323044,196.134308 230.800797,183.713837 218.997742,171.566711 C214.357758,166.791473 208.345490,167.479950 201.587204,168.698654 C216.768005,185.052231 231.362793,200.774506 246.435791,217.007721 z"
-  ]
-
   return (
     <svg width={size} height={size} viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
       {paths.map((d, i) => (
-        animateDraw ? (
-          <motion.path 
-            key={i} 
-            d={d} 
-            stroke="white" 
-            strokeWidth="2"
-            variants={draw}
-            initial="hidden"
-            animate="visible"
-          />
-        ) : (
-          <path key={i} fill="white" d={d} />
-        )
+        <path 
+          key={i} 
+          d={d} 
+          className={animateDraw ? "splash-draw-path" : ""}
+          fill={animateDraw ? "transparent" : "white"}
+        />
       ))}
     </svg>
   )
@@ -293,7 +273,7 @@ const Hero = () => {
             Portfolio
           </motion.div>
 
-          <motion.h1 variants={stagger.item} className="hero-name">
+          <motion.h1 variants={stagger.item} className="hero-name" style={{ whiteSpace: 'nowrap' }}>
             V Yogesh Rajan
           </motion.h1>
 
@@ -357,19 +337,19 @@ const Hero = () => {
               <span className="code-dot" />
             </div>
             <code>
-              <span className="code-line"><span className="code-comment">// portfolio.js</span></span>
+              <span className="code-line"><span className="code-comment">// App.jsx</span></span>
               <span className="code-line">&nbsp;</span>
-              <span className="code-line"><span className="code-keyword">const</span> <span className="code-fn">developer</span> = {'{'}</span>
-              <span className="code-line">&nbsp;&nbsp;name: <span className="code-str">"V Yogesh Rajan"</span>,</span>
-              <span className="code-line">&nbsp;&nbsp;role: <span className="code-str">"Full Stack Dev"</span>,</span>
-              <span className="code-line">&nbsp;&nbsp;skills: [</span>
-              <span className="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span className="code-str">"React"</span>, <span className="code-str">"Node.js"</span>,</span>
-              <span className="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span className="code-str">"Firebase"</span>, <span className="code-str">"Python"</span></span>
-              <span className="code-line">&nbsp;&nbsp;],</span>
-              <span className="code-line">&nbsp;&nbsp;available: <span className="code-keyword">true</span></span>
+              <span className="code-line"><span className="code-keyword">export default function</span> <span className="code-fn">Portfolio</span>() {'{'}</span>
+              <span className="code-line">&nbsp;&nbsp;<span className="code-keyword">return</span> (</span>
+              <span className="code-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span className="code-fn">Developer</span></span>
+              <span className="code-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name=<span className="code-str">"V Yogesh Rajan"</span></span>
+              <span className="code-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;role=<span className="code-str">"Full Stack Engineer"</span></span>
+              <span className="code-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;skills={`{['React', 'Node', 'IoT']}`}</span>
+              <span className="code-line">&nbsp;&nbsp;&nbsp;&nbsp;/&gt;</span>
+              <span className="code-line">&nbsp;&nbsp;)</span>
               <span className="code-line">{'}'}</span>
               <span className="code-line">&nbsp;</span>
-              <span className="code-line"><span className="code-fn">build</span>(developer) <span className="code-comment">// 🚀</span></span>
+              <span className="code-line"><span className="code-comment">/* Code beautifully to build beautifully. */</span></span>
             </code>
           </div>
         </motion.div>
@@ -507,6 +487,7 @@ const projects = [
     ],
     role: 'Frontend Developer & DB Management',
     badge: null,
+    icon: <Utensils size={40} className="project-corner-icon" />
   },
   {
     num: '02',
@@ -522,6 +503,7 @@ const projects = [
     ],
     role: 'Frontend Developer — Maps & UI/UX',
     badge: '🏆 Freshathon Hackathon',
+    icon: <BusFront size={40} className="project-corner-icon" />
   },
   {
     num: '03',
@@ -537,6 +519,7 @@ const projects = [
     ],
     role: 'Backend Developer & IoT Engineer',
     badge: null,
+    icon: <Droplets size={40} className="project-corner-icon" />
   },
 ]
 
@@ -554,10 +537,10 @@ const Projects = () => (
             whileHover={{ y: -7, boxShadow: '0 20px 60px rgba(0,0,0,0.12)' }}
             transition={{ type: 'spring', stiffness: 240, damping: 22 }}
           >
-            {/* Header row */}
             <div className="pc-header">
               <span className="project-num">Project {p.num}</span>
               {p.badge && <span className="pc-badge">{p.badge}</span>}
+              {p.icon}
             </div>
 
             <h3 className="pc-title">{p.title}</h3>
