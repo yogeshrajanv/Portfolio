@@ -3,7 +3,7 @@ import { motion, AnimatePresence, useInView } from 'framer-motion'
 import {
   Github, Linkedin, Instagram, Mail, ExternalLink,
   Download, ChevronRight, Code2, Database, Monitor,
-  Award, Send, ArrowRight, Menu, X, Terminal
+  Award, Send, ArrowRight, Menu, X, Terminal, FileText
 } from 'lucide-react'
 
 /* ============================================================
@@ -548,28 +548,65 @@ const Projects = () => (
    CERTIFICATES
    ============================================================ */
 const certs = [
-  { name: 'Full Stack Web Development', issuer: 'Coursera' },
-  { name: 'Data Structures & Algorithms', issuer: 'Udemy' },
-  { name: 'Python Programming', issuer: 'HackerRank' },
-  { name: 'React Development', issuer: 'freeCodeCamp' },
+  { 
+    name: 'Pongal Hackathon (2nd Place)', 
+    issuer: 'Hackathon Certificate',
+    desc: 'Created a cashew disease detection app using an ML model within the given time limit.',
+    file: '/certificates/pongal certificate .pdf'
+  },
+  { 
+    name: 'Data Analytics', 
+    issuer: 'Maiyyam',
+    desc: 'Learned basics of Data Analysis, Power BI, DAX, Power Query and visualization tools.',
+    file: '/certificates/Data Analytics_Maiyyam.pdf'
+  },
+  { 
+    name: 'Web Development', 
+    issuer: 'Maiyyam',
+    desc: 'Covered fundamentals of Web Development using HTML, CSS, JS, and basics of React.',
+    file: '/certificates/Web Development_Maiyyam.pdf'
+  },
+  { 
+    name: 'IIRS Workshop', 
+    issuer: 'IIRS',
+    desc: 'Attended a comprehensive workshop on advanced image analysis for geospatial professionals.',
+    file: '/certificates/iirs workshop.pdf'
+  },
+  { 
+    name: 'Freshathon Hackathon', 
+    issuer: 'Hackathon Certificate',
+    desc: 'Developed an app for real-time bus tracking without trackers using live location sharing to calculate ETAs.',
+    file: '/certificates/freshathon certificate .pdf'
+  },
 ]
 
 const Certificates = () => (
   <div className="alt-bg section-full" id="certificates">
     <div className="section-inner" style={{ padding: '130px 24px' }}>
-      <SectionTitle title="Certificates & Courses" />
+      <SectionTitle title="Certificates & Courses" subtitle="My academic and extracurricular learnings" />
       <div className="cert-grid">
         {certs.map((c, i) => (
           <FadeUp key={c.name} delay={i * 0.1}>
-            <motion.div
-              className="cert-card"
-              whileHover={{ y: -5 }}
-              transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-            >
-              <Award className="cert-icon" size={30} />
-              <h3>{c.name}</h3>
-              <p>{c.issuer}</p>
-            </motion.div>
+            <a href={c.file} target="_blank" rel="noopener noreferrer" className="cert-link-wrap">
+              <motion.div
+                className="cert-card"
+                whileHover={{ y: -6, boxShadow: '0 20px 40px rgba(0,0,0,0.06)' }}
+                transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+              >
+                <div className="cert-thumb">
+                  <FileText className="cert-thumb-icon" size={42} strokeWidth={1.5} />
+                  <span className="cert-thumb-badge">PDF</span>
+                </div>
+                <div className="cert-content">
+                  <div className="cert-header">
+                    <Award className="cert-icon" size={16} strokeWidth={2.5} />
+                    <span className="cert-issuer">{c.issuer}</span>
+                  </div>
+                  <h3>{c.name}</h3>
+                  <p className="cert-desc">{c.desc}</p>
+                </div>
+              </motion.div>
+            </a>
           </FadeUp>
         ))}
       </div>
