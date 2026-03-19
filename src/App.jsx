@@ -186,7 +186,7 @@ const Navbar = () => {
           <div className="nav-logo-mark">
             <YLogoWhite size={26} />
           </div>
-          <span>YOGESH</span>
+          <span>V YOGESH RAJN</span>
         </a>
 
         <ul className="nav-links">
@@ -263,7 +263,7 @@ const Hero = () => {
           </motion.div>
 
           <motion.h1 variants={stagger.item} className="hero-name">
-            Yogesh<br />Rajan
+            V Yogesh<br />Rajn
           </motion.h1>
 
           <motion.div variants={stagger.item} className="hero-role">
@@ -535,14 +535,6 @@ const Projects = () => (
                 <span className="pc-role-label">Role</span>
                 {p.role}
               </span>
-              <div className="project-links">
-                <a href="#" className="project-link">
-                  <Github size={16} /> Code
-                </a>
-                <a href="#" className="project-link">
-                  <ExternalLink size={16} /> Demo
-                </a>
-              </div>
             </div>
           </motion.div>
         </FadeUp>
@@ -894,7 +886,7 @@ export default function App() {
           <Contact />
 
           <footer className="site-footer">
-            <p>© {new Date().getFullYear()} Yogesh Rajan. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} V Yogesh Rajn. All rights reserved.</p>
           </footer>
         </motion.div>
       )}
