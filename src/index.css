@@ -423,10 +423,20 @@ h1.hero-name {
 }
 
 .code-line { display: block; }
+.code-keyword, .code-fn, .code-str, .code-comment {
+  transition: color 0.4s ease;
+}
+
 .code-keyword { color: #888; font-style: italic; }
 .code-fn { color: #333; font-weight: 700; }
 .code-str { color: #999; }
 .code-comment { color: #bbb; }
+
+/* Color syntax highlighting on hover */
+.hero-code-card:hover .code-keyword { color: #005cc5; }  /* Blue for const/true */
+.hero-code-card:hover .code-fn      { color: #6f42c1; }  /* Purple for var/func names */
+.hero-code-card:hover .code-str     { color: #032f62; }  /* Dark blue for strings */
+.hero-code-card:hover .code-comment { color: #6a737d; }  /* Standard comment grey */
 
 /* ===== BUTTONS ===== */
 .btn {

@@ -186,7 +186,7 @@ const Navbar = () => {
           <div className="nav-logo-mark">
             <YLogoWhite size={26} />
           </div>
-          <span>V YOGESH RAJN</span>
+          <span>V YOGESH RAJAN</span>
         </a>
 
         <ul className="nav-links">
@@ -263,7 +263,7 @@ const Hero = () => {
           </motion.div>
 
           <motion.h1 variants={stagger.item} className="hero-name">
-            V Yogesh<br />Rajn
+            V Yogesh Rajan
           </motion.h1>
 
           <motion.div variants={stagger.item} className="hero-role">
@@ -329,7 +329,7 @@ const Hero = () => {
               <span className="code-line"><span className="code-comment">// portfolio.js</span></span>
               <span className="code-line">&nbsp;</span>
               <span className="code-line"><span className="code-keyword">const</span> <span className="code-fn">developer</span> = {'{'}</span>
-              <span className="code-line">&nbsp;&nbsp;name: <span className="code-str">"Yogesh Rajan"</span>,</span>
+              <span className="code-line">&nbsp;&nbsp;name: <span className="code-str">"V Yogesh Rajan"</span>,</span>
               <span className="code-line">&nbsp;&nbsp;role: <span className="code-str">"Full Stack Dev"</span>,</span>
               <span className="code-line">&nbsp;&nbsp;skills: [</span>
               <span className="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span className="code-str">"React"</span>, <span className="code-str">"Node.js"</span>,</span>
@@ -886,7 +886,7 @@ export default function App() {
           <Contact />
 
           <footer className="site-footer">
-            <p>© {new Date().getFullYear()} V Yogesh Rajn. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} V Yogesh Rajan. All rights reserved.</p>
           </footer>
         </motion.div>
       )}
