@@ -7,6 +7,20 @@ import {
 } from 'lucide-react'
 
 /* ============================================================
+   Y LOGO — inline white SVG (actual letterform paths, no background box)
+   ============================================================ */
+const YLogoWhite = ({ size = 120 }) => (
+  <svg width={size} height={size} viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+    {/* Left arm + stem */}
+    <path fill="white" d="M188.592957,167.174133 C179.844940,167.130692 171.096786,167.050507 162.349121,167.088135 C161.195602,167.093094 160.044678,167.699631 158.326981,168.366837 C158.160690,169.514786 157.419662,171.147629 157.916306,171.736252 C163.349976,178.176239 168.806595,184.614456 174.597900,190.730347 C180.740921,197.217682 187.404968,203.210770 193.567719,209.680481 C204.185654,220.827240 214.770233,232.017014 225.000961,243.516006 C229.263062,248.306458 235.122971,252.414139 235.032471,260.923279 C235.021027,284.304565 234.988068,307.685883 235.042740,331.067017 C235.046738,332.771057 235.686249,334.473633 236.515686,336.524811 C246.824585,330.950256 257.183624,325.464630 267.390228,319.708618 C268.983826,318.809906 269.883057,316.679932 271.497162,314.822906 C271.749725,314.581665 271.874023,314.286438 271.943329,313.303162 C271.965027,312.878265 271.986725,312.453339 272.010956,311.085114 C272.008911,293.039856 272.006897,274.994568 271.974518,256.208405 C268.216919,250.857651 264.972778,245.040604 260.611298,240.238297 C243.354813,221.237503 225.896210,202.413620 208.186356,183.835068 C202.472107,177.840515 197.916168,170.163467 188.592957,167.174133 z" />
+    {/* Right arm */}
+    <path fill="white" d="M312.359406,168.002945 C309.467560,169.758316 306.086487,171.027496 303.771820,173.356476 C295.480682,181.698959 287.568817,190.417526 279.478668,198.960861 C272.244568,206.600159 264.977997,214.208847 257.696289,221.802795 C255.573990,224.016113 255.536560,226.018951 257.708618,228.287888 C262.067749,232.841370 266.265289,237.549194 270.594025,242.132385 C271.910034,243.525772 273.437500,244.719482 276.013794,247.033829 C280.189728,242.313370 283.959595,237.909821 287.882141,233.646744 C296.708801,224.053833 305.590027,214.510773 314.488281,204.984116 C324.442047,194.327438 334.500702,183.767212 344.306152,172.976410 C345.132446,172.067108 344.387421,169.729965 343.885162,167.274796 C335.133820,167.185318 326.382477,167.049133 317.631134,167.051178 C316.128815,167.051529 314.626617,167.640762 312.359406,168.002945 z" />
+    {/* Junction connector */}
+    <path fill="white" d="M246.435791,217.007721 C247.639404,218.009857 248.843018,219.011978 250.248123,220.181870 C251.729065,218.207977 252.631699,216.564438 253.937653,215.357208 C256.544159,212.947800 255.979416,210.677933 253.918030,208.482620 C242.323044,196.134308 230.800797,183.713837 218.997742,171.566711 C214.357758,166.791473 208.345490,167.479950 201.587204,168.698654 C216.768005,185.052231 231.362793,200.774506 246.435791,217.007721 z" />
+  </svg>
+)
+
+/* ============================================================
    PARTICLE CANVAS – floating dots + connecting lines
    ============================================================ */
 const ParticleCanvas = () => {
@@ -170,7 +184,7 @@ const Navbar = () => {
       <div className="nav-inner">
         <a href="#home" className="nav-logo">
           <div className="nav-logo-mark">
-            <img src="/assets/Y logo.svg" alt="Yogesh Rajan Logo" />
+            <YLogoWhite size={26} />
           </div>
           <span>YOGESH</span>
         </a>
@@ -431,52 +445,104 @@ const Skills = () => {
 const projects = [
   {
     num: '01',
-    title: 'Placement Intelligence Tracker',
-    desc: 'A system that evaluates student performance using coding profiles, certificates, and skills, generating structured performance analytics.',
-    tech: ['React', 'Firebase', 'Node.js'],
+    title: 'Smart Canteen Management System',
+    tagline: 'Digital-first solution to eliminate queues and manual billing errors',
+    desc: 'A mobile-based canteen system enabling users to browse menus, place orders, and pay digitally. A Raspberry Pi verifies the digital bill at the counter and triggers automatic receipt printing.',
+    tech: ['Flutter', 'SQL Server', 'Twilio', 'Raspberry Pi', 'Thermal Printer'],
+    features: [
+      'Digital ordering & payment flow',
+      'QR/visual bill verification via Raspberry Pi',
+      'Automated thermal receipt printing',
+      'SMS order notifications via Twilio',
+    ],
+    role: 'Frontend Developer & DB Management',
+    badge: null,
   },
   {
     num: '02',
-    title: 'Health Tracking Dashboard',
-    desc: 'A data-driven application visualizing health metrics like sleep, stress, and activity using interactive charts.',
-    tech: ['React', 'Firebase'],
+    title: 'Real-Time Bus Tracking System',
+    tagline: 'Track buses live — no expensive GPS hardware needed',
+    desc: 'Web app that lets students track college buses in real-time. Drivers share live location via mobile; students see bus positions and ETAs on an interactive map.',
+    tech: ['Firebase', 'Google Maps API', 'Leaflet', 'HTML', 'CSS'],
+    features: [
+      'Live bus tracking via mobile location sharing',
+      'Real-time sync with Firebase Realtime Database',
+      'Interactive map with ETA display',
+      'Lightweight, cost-effective architecture',
+    ],
+    role: 'Frontend Developer — Maps & UI/UX',
+    badge: '🏆 Freshathon Hackathon',
   },
   {
     num: '03',
-    title: 'Personal Portfolio Website',
-    desc: 'A responsive and minimal portfolio to showcase projects, skills, and achievements.',
-    tech: ['HTML', 'CSS', 'JavaScript'],
+    title: 'Elementrixx — IoT Water Quality Monitor',
+    tagline: 'Prevent water contamination at the source using real-time IoT monitoring',
+    desc: 'IoT system that monitors contamination levels in water bodies via ESP32 sensors. Data is transmitted through MQTT, analyzed in real-time, and alerts locals automatically in native languages.',
+    tech: ['ESP32', 'MQTT', 'Firebase', 'SMS Alert System'],
+    features: [
+      'Real-time sensor data via MQTT protocol',
+      'Multilingual automated SMS alerts for locals',
+      'Smart auto-deletion for data management',
+      'Live contamination monitoring dashboard',
+    ],
+    role: 'Backend Developer & IoT Engineer',
+    badge: null,
   },
 ]
 
 const Projects = () => (
   <section id="projects">
-    {/* faint code decoration */}
     <div className="code-bg-decoration" aria-hidden="true">
       {`function build(app) {\n  return deploy(app);\n}\n\nconst result = build({\n  stack: "MERN",\n  ready: true\n});`}
     </div>
-    <SectionTitle title="Featured Projects" />
+    <SectionTitle title="Featured Projects" subtitle="Real-world solutions built with purpose" />
     <div className="projects-grid">
       {projects.map((p, i) => (
-        <FadeUp key={p.title} delay={i * 0.1}>
+        <FadeUp key={p.title} delay={i * 0.12}>
           <motion.div
             className="project-card"
-            whileHover={{ y: -6 }}
-            transition={{ type: 'spring', stiffness: 260, damping: 20 }}
+            whileHover={{ y: -7, boxShadow: '0 20px 60px rgba(0,0,0,0.12)' }}
+            transition={{ type: 'spring', stiffness: 240, damping: 22 }}
           >
-            <div className="project-num">Project {p.num}</div>
-            <h3>{p.title}</h3>
-            <p>{p.desc}</p>
-            <div className="tech-tags">
+            {/* Header row */}
+            <div className="pc-header">
+              <span className="project-num">Project {p.num}</span>
+              {p.badge && <span className="pc-badge">{p.badge}</span>}
+            </div>
+
+            <h3 className="pc-title">{p.title}</h3>
+            <p className="pc-tagline">"{p.tagline}"</p>
+            <p className="pc-desc">{p.desc}</p>
+
+            {/* Tech stack */}
+            <div className="tech-tags" style={{ marginTop: '16px' }}>
               {p.tech.map(t => <span key={t} className="tech-tag">{t}</span>)}
             </div>
-            <div className="project-links">
-              <a href="#" className="project-link">
-                <Github size={18} /> Code
-              </a>
-              <a href="#" className="project-link">
-                <ExternalLink size={18} /> Live Demo
-              </a>
+
+            {/* Key features */}
+            <ul className="pc-features">
+              {p.features.map(f => (
+                <li key={f}>
+                  <ChevronRight size={13} className="pc-feat-icon" />
+                  {f}
+                </li>
+              ))}
+            </ul>
+
+            {/* Footer row */}
+            <div className="pc-footer">
+              <span className="pc-role">
+                <span className="pc-role-label">Role</span>
+                {p.role}
+              </span>
+              <div className="project-links">
+                <a href="#" className="project-link">
+                  <Github size={16} /> Code
+                </a>
+                <a href="#" className="project-link">
+                  <ExternalLink size={16} /> Demo
+                </a>
+              </div>
             </div>
           </motion.div>
         </FadeUp>
@@ -484,6 +550,7 @@ const Projects = () => (
     </div>
   </section>
 )
+
 
 /* ============================================================
    CERTIFICATES
@@ -630,134 +697,145 @@ const Contact = () => {
 }
 
 /* ============================================================
-   SPLASH SCREEN – Premium black, terminal + logo
+   SPLASH: Code-Rain Canvas (matrix falling characters)
    ============================================================ */
-const SplashParticles = () => {
+const SplashCodeRain = () => {
   const ref = useRef(null)
   useEffect(() => {
     const canvas = ref.current
     const ctx = canvas.getContext('2d')
-    let id
-    const N = 70
+    let id, frame = 0
+    const CHARS = '01{}[]<>/=;.|*+~&$@#!'
+    const FS = 13, CW = 26
     const resize = () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight }
     resize()
     window.addEventListener('resize', resize)
-    const dots = Array.from({ length: N }, () => ({
-      x: Math.random() * window.innerWidth,
-      y: Math.random() * window.innerHeight,
-      vx: (Math.random() - 0.5) * 0.25,
-      vy: (Math.random() - 0.5) * 0.25,
-      r: Math.random() * 1.5 + 0.5,
-    }))
+    let cols = Math.floor(canvas.width / CW)
+    let heads = Array.from({ length: cols }, () => -Math.floor(Math.random() * 40))
     const tick = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
-      dots.forEach(d => {
-        d.x += d.vx; d.y += d.vy
-        if (d.x < 0 || d.x > canvas.width) d.vx *= -1
-        if (d.y < 0 || d.y > canvas.height) d.vy *= -1
-      })
-      for (let i = 0; i < dots.length; i++) {
-        for (let j = i + 1; j < dots.length; j++) {
-          const dx = dots[i].x - dots[j].x, dy = dots[i].y - dots[j].y
-          const dist = Math.sqrt(dx * dx + dy * dy)
-          if (dist < 130) {
-            ctx.beginPath()
-            ctx.moveTo(dots[i].x, dots[i].y)
-            ctx.lineTo(dots[j].x, dots[j].y)
-            ctx.strokeStyle = `rgba(255,255,255,${0.07 * (1 - dist / 130)})`
-            ctx.lineWidth = 0.6
-            ctx.stroke()
-          }
-        }
-        ctx.beginPath()
-        ctx.arc(dots[i].x, dots[i].y, dots[i].r, 0, Math.PI * 2)
-        ctx.fillStyle = 'rgba(255,255,255,0.18)'
-        ctx.fill()
+      frame++
+      if (frame % 2 === 0) {
+        ctx.fillStyle = 'rgba(0,0,0,0.07)'
+        ctx.fillRect(0, 0, canvas.width, canvas.height)
+        ctx.font = `${FS}px "JetBrains Mono", monospace`
+        cols = Math.floor(canvas.width / CW)
+        if (heads.length !== cols) heads = Array.from({ length: cols }, () => -Math.floor(Math.random() * 40))
+        heads.forEach((y, i) => {
+          if (y < 0) { heads[i]++; return }
+          const char = CHARS[Math.floor(Math.random() * CHARS.length)]
+          const x = i * CW
+          ctx.fillStyle = 'rgba(255,255,255,0.75)'
+          ctx.fillText(char, x, y * FS)
+          if (y * FS > canvas.height && Math.random() > 0.978) heads[i] = -Math.floor(Math.random() * 30)
+          else heads[i]++
+        })
       }
       id = requestAnimationFrame(tick)
     }
     tick()
     return () => { cancelAnimationFrame(id); window.removeEventListener('resize', resize) }
   }, [])
-  return <canvas ref={ref} id="splash-canvas" />
+  return <canvas ref={ref} id="splash-canvas" style={{ opacity: 0.18 }} />
 }
 
+/* ============================================================
+   SPLASH: Terminal text sequence
+   ============================================================ */
 const TERMINAL_LINES = [
-  { text: 'Initializing Portfolio...', delay: 400 },
-  { text: 'Loading Components...', delay: 1050 },
-  { text: 'Ready.', delay: 1700, highlight: true },
+  { text: 'Initializing Portfolio...', delay: 500 },
+  { text: 'Loading Components...', delay: 1150 },
+  { text: 'Compiling assets...', delay: 1800 },
+  { text: 'Ready.', delay: 2300, highlight: true },
 ]
 
 const SplashTerminal = () => {
   const [visibleLines, setVisibleLines] = useState([])
-
   useEffect(() => {
-    TERMINAL_LINES.forEach((line, i) => {
-      const t = setTimeout(() => {
-        setVisibleLines(prev => [...prev, i])
-      }, line.delay)
-      return () => clearTimeout(t)
-    })
+    const timers = TERMINAL_LINES.map((line, i) =>
+      setTimeout(() => setVisibleLines(prev => [...prev, i]), line.delay)
+    )
+    return () => timers.forEach(clearTimeout)
   }, [])
-
   const activeIdx = visibleLines.length - 1
-
   return (
     <div className="splash-terminal">
-      {TERMINAL_LINES.map((line, i) => (
+      {TERMINAL_LINES.map((line, i) =>
         visibleLines.includes(i) && (
           <motion.div
-            key={i}
-            className="splash-terminal-line"
-            initial={{ opacity: 0, x: -8 }}
+            key={i} className="splash-terminal-line"
+            initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.35, ease: 'easeOut' }}
+            transition={{ duration: 0.3, ease: 'easeOut' }}
           >
             <span className="splash-terminal-prompt">{'>'}</span>
-            <span className={`splash-terminal-text ${i < activeIdx || (line.highlight && visibleLines.includes(i)) ? 'done' : ''}`}>
+            <span className={`splash-terminal-text${i < activeIdx || line.highlight ? ' done' : ''}`}>
               {line.text}
             </span>
             {i === activeIdx && <span className="splash-terminal-cursor" />}
           </motion.div>
         )
-      ))}
+      )}
     </div>
   )
 }
 
+/* ============================================================
+   SPLASH SCREEN – Black + code rain + white Y logo + brackets
+   ============================================================ */
 const Splash = ({ onDone }) => (
   <motion.div
     className="splash"
     initial={{ opacity: 1 }}
     animate={{ opacity: 0 }}
-    transition={{ duration: 0.9, delay: 3.1, ease: 'easeInOut' }}
+    transition={{ duration: 1.0, delay: 4.0, ease: 'easeInOut' }}
     onAnimationComplete={onDone}
   >
-    <SplashParticles />
+    {/* Code-rain background */}
+    <SplashCodeRain />
 
     <div className="splash-center">
-      {/* Logo */}
-      <motion.div
-        className="splash-logo-wrap"
-        initial={{ scale: 0.75, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 0.85, ease: [0.34, 1.56, 0.64, 1] }}
-      >
-        <div className="splash-logo-glow" />
-        <motion.img
-          src="/assets/Y logo.svg"
-          alt="Yogesh Rajan"
-          className="splash-logo-img"
-          animate={{ scale: [1, 1.04, 1] }}
-          transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-        />
-      </motion.div>
+      {/* Coding-bracket row: <  [LOGO]  /> */}
+      <div className="splash-bracket-row">
+        <motion.span
+          className="splash-bracket"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.6, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+        >
+          {'<'}
+        </motion.span>
 
-      {/* Terminal lines */}
+        {/* Logo with scan line */}
+        <motion.div
+          className="splash-logo-wrap"
+          initial={{ scale: 0.72, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.9, ease: [0.34, 1.56, 0.64, 1] }}
+        >
+          <div className="splash-logo-glow" />
+          <div className="splash-scan-line" />
+          <motion.div
+            animate={{ scale: [1, 1.045, 1] }}
+            transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
+          >
+            <YLogoWhite size={110} />
+          </motion.div>
+        </motion.div>
+
+        <motion.span
+          className="splash-bracket"
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.6, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+        >
+          {'/>'}
+        </motion.span>
+      </div>
+
+      {/* Terminal */}
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.3, duration: 0.4 }}
+        initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+        transition={{ delay: 0.4, duration: 0.5 }}
       >
         <SplashTerminal />
       </motion.div>
@@ -768,7 +846,7 @@ const Splash = ({ onDone }) => (
         initial={{ opacity: 0, scaleX: 0 }}
         animate={{ opacity: 1, scaleX: 1 }}
         style={{ transformOrigin: 'left' }}
-        transition={{ delay: 0.35, duration: 0.4 }}
+        transition={{ delay: 0.45, duration: 0.5 }}
       >
         <div className="splash-progress" />
       </motion.div>
