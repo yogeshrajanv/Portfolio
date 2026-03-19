@@ -549,7 +549,7 @@ const Projects = () => (
    ============================================================ */
 const certs = [
   { 
-    name: 'Pongal Hackathon (2nd Place)', 
+    name: 'AgRITech Pongal Hackathon (2nd Place)', 
     issuer: 'Hackathon Certificate',
     desc: 'Created a cashew disease detection app using an ML model within the given time limit.',
     file: '/certificates/pongal certificate .pdf'
@@ -623,15 +623,75 @@ const Certificates = () => (
 /* ============================================================
    EXPERIENCE
    ============================================================ */
+const internships = [
+  {
+    company: 'Spinacle',
+    role: 'Mobile Application Developer',
+    duration: 'Jul 2025 - Aug 2025 • 2 mos',
+    desc: 'Worked on a gut health tracker application used to accurately analyze and monitor patient health data.',
+    file: '/internship/spinacle certificate .pdf'
+  },
+  {
+    company: 'ShiningBot',
+    role: 'Web Developer',
+    duration: 'Jul 2025 • 1 mo',
+    desc: 'Developed a smart attendance system utilizing advanced face recognition algorithms.',
+    file: '/internship/shining bot certificate .pdf'
+  }
+]
+
 const Experience = () => (
   <section id="experience">
     <SectionTitle title="Experience" />
+    
+    {/* ===== INTERNSHIPS SUB-SECTION ===== */}
+    <div style={{ marginBottom: '30px' }}>
+      <h3 style={{ fontSize: '1.5rem', fontWeight: 800 }}>Internships</h3>
+    </div>
+    
+    <div className="internship-grid" style={{ marginBottom: '60px' }}>
+      {internships.map((int, i) => (
+        <FadeUp key={int.company} delay={i * 0.15}>
+          <a href={int.file} target="_blank" rel="noopener noreferrer" className="cert-link-wrap">
+            <motion.div
+              className="internship-card"
+              whileHover={{ y: -8, boxShadow: '0 24px 48px rgba(0,0,0,0.08)' }}
+              transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+            >
+              <div className="internship-thumb" style={{ padding: 0 }}>
+                <iframe
+                  src={`${int.file}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`}
+                  className="cert-pdf-frame"
+                  title={int.company}
+                  tabIndex={-1}
+                />
+                <div className="cert-thumb-overlay" />
+                <span className="cert-thumb-badge" style={{ background: '#222' }}>PDF</span>
+              </div>
+              <div className="internship-content">
+                <div className="internship-header">
+                  <span className="internship-company">{int.company}</span>
+                  <span className="internship-duration">{int.duration}</span>
+                </div>
+                <h3>{int.role}</h3>
+                <p className="internship-desc">{int.desc}</p>
+              </div>
+            </motion.div>
+          </a>
+        </FadeUp>
+      ))}
+    </div>
+
+    {/* ===== PROJECTS & ACHIEVEMENTS SUB-SECTION ===== */}
+    <div style={{ marginBottom: '30px' }}>
+      <h3 style={{ fontSize: '1.5rem', fontWeight: 800 }}>Academic & Self Projects</h3>
+    </div>
     <div className="exp-timeline">
       <div className="exp-dot" />
       <FadeUp>
         <div className="exp-label">Present</div>
         <h3>Software Development</h3>
-        <p className="exp-sub">Academic / Self Projects</p>
+        <p className="exp-sub">Continuous Learning</p>
         <p className="exp-desc">
           Worked on full-stack applications focusing on performance, clean architecture, and user experience. Gained experience in API integration, database handling, and responsive UI design.
         </p>

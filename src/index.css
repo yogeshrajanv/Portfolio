@@ -883,6 +883,96 @@ h1.hero-name {
   flex: 1;
 }
 
+/* ===== INTERNSHIPS ===== */
+.internship-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+@media (max-width: 900px) {
+  .internship-grid { grid-template-columns: 1fr; }
+}
+
+.internship-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.35s, transform 0.35s, border-color 0.3s;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.internship-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-8px);
+  border-color: var(--border-dark);
+}
+
+.internship-card:hover .cert-thumb-overlay {
+  background: rgba(0,0,0,0.02);
+}
+
+.internship-thumb {
+  background: #f8f8f8;
+  border-bottom: 1px solid var(--border);
+  height: 240px; /* Bigger box section than certificates */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.internship-content {
+  padding: 30px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.internship-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.internship-company {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--text-1);
+  letter-spacing: 0.05em;
+  padding: 4px 12px;
+  background: #f4f4f4;
+  border-radius: 20px;
+}
+
+.internship-duration {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-3);
+}
+
+.internship-card h3 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+  color: var(--text-1);
+  line-height: 1.3;
+}
+
+.internship-desc {
+  font-size: 0.95rem;
+  color: var(--text-2);
+  line-height: 1.6;
+  margin-bottom: 0;
+  flex: 1;
+}
+
 /* ===== EXPERIENCE ===== */
 .exp-timeline {
   border-left: 2px solid var(--border);
