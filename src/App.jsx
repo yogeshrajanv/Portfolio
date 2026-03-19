@@ -4,7 +4,7 @@ import {
   Github, Linkedin, Instagram, Mail, ExternalLink,
   Download, ChevronRight, Code2, Database, Monitor,
   Award, Send, ArrowRight, Menu, X, Terminal, FileText,
-  Utensils, BusFront, Droplets
+  Utensils, BusFront, Droplets, GitPullRequest
 } from 'lucide-react'
 
 /* ============================================================
@@ -374,41 +374,44 @@ const About = () => (
         </p>
       </FadeLeft>
 
-      {/* Code Editor Creative Design Window */}
-      <FadeUp delay={0.15} className="about-editor">
-        <div className="editor-header">
-          <div className="editor-tab active">
-            <Code2 size={13} style={{ marginRight: '6px' }} />
-            profile.ts
-          </div>
-          <div className="editor-tab">
-            <Database size={13} style={{ marginRight: '6px' }} />
-            knowledge.sql
-          </div>
+      {/* Git Diff Creative Design Window */}
+      <FadeUp delay={0.15} className="about-diff">
+        <div className="diff-header">
+           <GitPullRequest size={15} style={{ color: '#2da44e' }} /> 
+           <span>Pull Request #1: Initialize Developer</span>
         </div>
-        <div className="editor-body">
-<pre><code>
-<span className="ce-keyword">interface</span> <span className="ce-type">Engineer</span> {'{'}
-  name: <span className="ce-type">string</span>;
-  degree: <span className="ce-type">string</span>;
-  passion: <span className="ce-type">string</span>;
-{'}'}
-
-<span className="ce-keyword">const</span> <span className="ce-var">yogesh</span>: <span className="ce-type">Engineer</span> = {'{'}
-  name: <span className="ce-str">"V Yogesh Rajan"</span>,
-  degree: <span className="ce-str">"Computer Science"</span>,
-  passion: <span className="ce-str">"Building impactful, scalable apps."</span>
-{'}'};
-</code></pre>
+        <div className="diff-body">
+           <div className="diff-line removed">
+             <span className="diff-sign">-</span>
+             <span className="diff-text">status: <span className="diff-str">"Learning the basics",</span></span>
+           </div>
+           <div className="diff-line added">
+             <span className="diff-sign">+</span>
+             <span className="diff-text">status: <span className="diff-str">"Building impactful, scalable apps",</span></span>
+           </div>
+           <div className="diff-line empty"></div>
+           <div className="diff-line removed">
+             <span className="diff-sign">-</span>
+             <span className="diff-text">skills: <span className="diff-keyword">null</span>,</span>
+           </div>
+           <div className="diff-line added">
+             <span className="diff-sign">+</span>
+             <span className="diff-text">skills: [<span className="diff-str">"React"</span>, <span className="diff-str">"Node.js"</span>, <span className="diff-str">"IoT Devices"</span>],</span>
+           </div>
+           <div className="diff-line empty"></div>
+           <div className="diff-line added">
+             <span className="diff-sign">+</span>
+             <span className="diff-text">goal: <span className="diff-str">"To become a highly skilled software engineer."</span></span>
+           </div>
         </div>
       </FadeUp>
     </div>
     
     <FadeUp delay={0.15} className="stats-grid">
       {[
-        { num: '3+', label: 'Projects Completed' },
-        { num: '100+', label: 'Coding Problems' },
-        { num: '4+', label: 'Certifications' },
+        { num: '5+', label: 'Projects Completed' },
+        { num: '150+', label: 'Coding Problems' },
+        { num: '5+', label: 'Certifications' },
         { num: '2+', label: 'Years Learning' },
       ].map((s, i) => (
         <motion.div
