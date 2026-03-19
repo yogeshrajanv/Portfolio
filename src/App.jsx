@@ -374,21 +374,32 @@ const About = () => (
         </p>
       </FadeLeft>
 
-      {/* Terminal Creative Design Window */}
-      <FadeUp delay={0.15} className="about-terminal">
-        <div className="term-header">
-          <span className="term-dot get-red" />
-          <span className="term-dot get-yellow" />
-          <span className="term-dot get-green" />
+      {/* Code Editor Creative Design Window */}
+      <FadeUp delay={0.15} className="about-editor">
+        <div className="editor-header">
+          <div className="editor-tab active">
+            <Code2 size={13} style={{ marginRight: '6px' }} />
+            profile.ts
+          </div>
+          <div className="editor-tab">
+            <Database size={13} style={{ marginRight: '6px' }} />
+            knowledge.sql
+          </div>
         </div>
-        <div className="term-body">
-          <p className="term-cmd"><span>$</span> init_developer.sh</p>
-          <p className="term-out">Loading Yogesh Rajan...</p>
-          <p className="term-out">Configuring skillset... [OK]</p>
-          <p className="term-out">Deploying passion for coding... [100%]</p>
-          <p className="term-cmd"><span>$</span> whoami</p>
-          <p className="term-out">"Driven Computer Science Engineer shaping impactful software."</p>
-          <span className="term-cursor">_</span>
+        <div className="editor-body">
+<pre><code>
+<span className="ce-keyword">interface</span> <span className="ce-type">Engineer</span> {'{'}
+  name: <span className="ce-type">string</span>;
+  degree: <span className="ce-type">string</span>;
+  passion: <span className="ce-type">string</span>;
+{'}'}
+
+<span className="ce-keyword">const</span> <span className="ce-var">yogesh</span>: <span className="ce-type">Engineer</span> = {'{'}
+  name: <span className="ce-str">"V Yogesh Rajan"</span>,
+  degree: <span className="ce-str">"Computer Science"</span>,
+  passion: <span className="ce-str">"Building impactful, scalable apps."</span>
+{'}'};
+</code></pre>
         </div>
       </FadeUp>
     </div>
@@ -485,7 +496,7 @@ const projects = [
       'Automated thermal receipt printing',
       'SMS order notifications via Twilio',
     ],
-    role: 'Frontend Developer & DB Management',
+    role: ' Frontend Developer & DB Management',
     badge: null,
     icon: <Utensils size={40} className="project-corner-icon" />
   },
@@ -501,7 +512,7 @@ const projects = [
       'Interactive map with ETA display',
       'Lightweight, cost-effective architecture',
     ],
-    role: 'Frontend Developer — Maps & UI/UX',
+    role: ' Frontend Developer — Maps & UI/UX',
     badge: '🏆 Freshathon Hackathon',
     icon: <BusFront size={40} className="project-corner-icon" />
   },
@@ -517,7 +528,7 @@ const projects = [
       'Smart auto-deletion for data management',
       'Live contamination monitoring dashboard',
     ],
-    role: 'Backend Developer & IoT Engineer',
+    role: ' Backend Developer & IoT Engineer',
     badge: null,
     icon: <Droplets size={40} className="project-corner-icon" />
   },
@@ -788,6 +799,23 @@ const Contact = () => {
                 ))}
               </div>
             </div>
+
+            {/* Terminal Creative Design Window Move */}
+            <div className="about-terminal" style={{ marginTop: '48px' }}>
+              <div className="term-header">
+                <span className="term-dot get-red" />
+                <span className="term-dot get-yellow" />
+                <span className="term-dot get-green" />
+              </div>
+              <div className="term-body">
+                <p className="term-cmd"><span>$</span> ./contact --target "Yogesh"</p>
+                <p className="term-out">Resolving connection... [OK]</p>
+                <p className="term-cmd"><span>$</span> status</p>
+                <p className="term-out">"🟢 Available for new opportunities!"</p>
+                <span className="term-cursor">_</span>
+              </div>
+            </div>
+
           </FadeLeft>
 
           <FadeUp delay={0.15}>
