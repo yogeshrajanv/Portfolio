@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence, useInView } from 'framer-motion'
 import {
   Github, Linkedin, Instagram, Mail, ExternalLink,
-  Download, ChevronRight, Code2, Database, Monitor,
+  Download, ChevronRight, ChevronLeft, Code2, Database, Monitor,
   Award, Send, ArrowRight, Menu, X, Terminal, FileText,
   Utensils, BusFront, Droplets, GitPullRequest
 } from 'lucide-react'
@@ -41,8 +41,8 @@ const ParticleCanvas = () => {
     const canvas = canvasRef.current
     const ctx = canvas.getContext('2d')
     let animId
-    const DOTS = 48
-    const MAX_DIST = 140
+    const DOTS = 60
+    const MAX_DIST = 160
 
     const resize = () => {
       canvas.width  = window.innerWidth
@@ -77,14 +77,14 @@ const ParticleCanvas = () => {
             ctx.beginPath()
             ctx.moveTo(dots[i].x, dots[i].y)
             ctx.lineTo(dots[j].x, dots[j].y)
-            ctx.strokeStyle = `rgba(0,0,0,${0.06 * (1 - dist / MAX_DIST)})`
-            ctx.lineWidth = 0.7
+            ctx.strokeStyle = `rgba(0,0,0,${0.08 * (1 - dist / MAX_DIST)})`
+            ctx.lineWidth = 0.8
             ctx.stroke()
           }
         }
         ctx.beginPath()
         ctx.arc(dots[i].x, dots[i].y, dots[i].r, 0, Math.PI * 2)
-        ctx.fillStyle = 'rgba(0,0,0,0.1)'
+        ctx.fillStyle = 'rgba(0,0,0,0.12)'
         ctx.fill()
       }
       animId = requestAnimationFrame(tick)
@@ -197,7 +197,7 @@ const Navbar = () => {
           <div className="nav-logo-mark">
             <YLogoWhite size={26} />
           </div>
-          <span>V YOGESH RAJAN</span>
+          <span>YOGESH RAJAN V</span>
         </a>
 
         <ul className="nav-links">
@@ -241,9 +241,9 @@ const Navbar = () => {
    ============================================================ */
 const Hero = () => {
   const role = useTyping([
-    'Software Engineer',
-    'Full Stack Developer',
-    'React Developer',
+    'Web Developer',
+    'Data Analyst',
+    'Web Development + Data Analysis',
     'Problem Solver',
   ])
 
@@ -274,7 +274,7 @@ const Hero = () => {
           </motion.div>
 
           <motion.h1 variants={stagger.item} className="hero-name" style={{ whiteSpace: 'nowrap' }}>
-            V Yogesh Rajan
+            Yogesh Rajan V
           </motion.h1>
 
           <motion.div variants={stagger.item} className="hero-role">
@@ -287,7 +287,7 @@ const Hero = () => {
           </motion.p>
 
           <motion.p variants={stagger.item} className="hero-intro">
-            A passionate CS Engineering student specialising in full-stack development. I write clean, maintainable code and build apps that solve real-world problems.
+            A passionate CS Engineering student specialising in web development and data analysis. I build clean, maintainable apps and turn data into useful insights.
           </motion.p>
 
           <motion.div variants={stagger.item} className="hero-skills-line">
@@ -342,7 +342,7 @@ const Hero = () => {
               <span className="code-line"><span className="code-keyword">export default function</span> <span className="code-fn">Portfolio</span>() {'{'}</span>
               <span className="code-line">&nbsp;&nbsp;<span className="code-keyword">return</span> (</span>
               <span className="code-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span className="code-fn">Developer</span></span>
-              <span className="code-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name=<span className="code-str">"V Yogesh Rajan"</span></span>
+              <span className="code-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name=<span className="code-str">"Yogesh Rajan V"</span></span>
               <span className="code-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;role=<span className="code-str">"Full Stack Engineer"</span></span>
               <span className="code-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;skills={`{['React', 'Node', 'IoT']}`}</span>
               <span className="code-line">&nbsp;&nbsp;&nbsp;&nbsp;/&gt;</span>
@@ -374,50 +374,46 @@ const About = () => (
         </p>
       </FadeLeft>
 
-      {/* Clean Code About Me Window */}
-      <FadeUp delay={0.15} className="about-code-clean">
-        <div className="acc-header">
-           <Code2 size={15} style={{ color: '#888' }} /> 
-           <span>about_me.js</span>
-        </div>
-        <div className="acc-body">
-<pre><code>
-<span className="acc-keyword">const</span> <span className="acc-var">yogesh</span> = {'{'}
-  status: <span className="acc-str">"Engineering Student"</span>,
-  focus: <span className="acc-str">"Scalable Web & IoT"</span>,
-  passion: <span className="acc-str">"Building impactful software."</span>
-{'}'};
-
-<span className="acc-keyword">while</span> (<span className="acc-var">yogesh</span>.learning) {'{'}
-  <span className="acc-fn">code</span>();
-  <span className="acc-fn">build</span>();
-  <span className="acc-fn">deploy</span>();
-{'}'}
-</code></pre>
-        </div>
+      {/* Right side: Math-Code Hybrid Card */}
+      <FadeUp delay={0.15} className="about-visual-container">
+        <motion.div 
+          className="math-code-card"
+          whileHover={{ rotateY: 5, rotateX: -5, scale: 1.02 }}
+          transition={{ type: 'spring', stiffness: 200, damping: 20 }}
+        >
+          <div className="card-symbols" aria-hidden="true">
+            <span className="symbol symb-1">∑</span>
+            <span className="symbol symb-2">∫</span>
+            <span className="symbol symb-3">λ</span>
+            <span className="symbol symb-4">π</span>
+            <span className="symbol symb-5">δ</span>
+            <span className="symbol symb-6">√</span>
+          </div>
+          <div className="card-content">
+            <div className="card-header">
+              <span className="dot dot-red" />
+              <span className="dot dot-yellow" />
+              <span className="dot dot-green" />
+              <span className="header-filename">algorithm_logic.py</span>
+            </div>
+            <div className="card-body">
+              <pre>
+                <code>
+                  <span className="keyword">def</span> <span className="function">analyze_impact</span>(code, passion):<br/>
+                  &nbsp;&nbsp;<span className="comment"># Calculus of Innovation</span><br/>
+                  &nbsp;&nbsp;result = ∫(passion * ∂(code)/∂t) dt<br/>
+                  &nbsp;&nbsp;<span className="keyword">return</span> <span className="string">"Impactful Software"</span><br/>
+                  <br/>
+                  <span className="comment"># Summing up years of growth</span><br/>
+                  growth = ∑(learning_day <span className="keyword">for</span> day <span className="keyword">in</span> years)
+                </code>
+              </pre>
+            </div>
+          </div>
+          <div className="card-shimmer" />
+        </motion.div>
       </FadeUp>
     </div>
-    
-    <FadeUp delay={0.15} className="stats-grid">
-      {[
-        { num: '5+', label: 'Projects Completed' },
-        { num: '150+', label: 'Coding Problems' },
-        { num: '5+', label: 'Certifications' },
-        { num: '2+', label: 'Years Learning' },
-      ].map((s, i) => (
-        <motion.div
-          key={s.label}
-          className="stat-box"
-          initial={{ opacity: 0, scale: 0.88 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: i * 0.08, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <h3>{s.num}</h3>
-          <p>{s.label}</p>
-        </motion.div>
-      ))}
-    </FadeUp>
   </section>
 )
 
@@ -444,30 +440,108 @@ const Skills = () => {
   ]
 
   return (
-    <div className="alt-bg section-full">
+    <div className="alt-bg section-full" id="skills">
       <div className="section-inner" style={{ padding: '130px 24px' }}>
         <SectionTitle title="Technical Skills" />
         <div className="skills-grid">
-          {data.map((s, i) => (
-            <FadeUp key={s.cat} delay={i * 0.1}>
-              <motion.div
-                className="skill-card"
-                whileHover={{ y: -6 }}
-                transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-              >
-                <div className="skill-icon-wrap">{s.icon}</div>
-                <h3>{s.cat}</h3>
-                <ul className="skill-list">
-                  {s.items.map(item => (
-                    <li key={item}>
-                      <span className="skill-dot" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            </FadeUp>
-          ))}
+          {data.map((s, i) => {
+            const symbols = {
+              'Frontend': '</>',
+              'Backend': '>_',
+              'Database': '{}'
+            }
+            return (
+              <FadeUp key={s.cat} delay={i * 0.1}>
+                <motion.div
+                  className={`skill-card ${s.cat.toLowerCase()}`}
+                  whileHover={{ y: -6 }}
+                  transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                >
+                  <div className="skill-card-bg-symbol">{symbols[s.cat]}</div>
+                  <div className="skill-icon-wrap">{s.icon}</div>
+                  <h3>{s.cat}</h3>
+                  <ul className="skill-list">
+                    {s.items.map(item => (
+                      <li key={item}>
+                        <span className="skill-dot" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              </FadeUp>
+            )
+          })}
+        </div>
+
+        {/* Database Schema Hybrid Card at the bottom */}
+        <div className="skills-bottom-grid">
+          <FadeUp delay={0.3} className="about-visual-container skills-mongo-left">
+            <motion.div
+              className="math-code-card mongo-card"
+              whileHover={{ rotateY: -3, rotateX: 3, scale: 1.01 }}
+              transition={{ type: 'spring', stiffness: 200, damping: 20 }}
+            >
+              <div className="card-symbols" aria-hidden="true">
+                <span className="symbol database-symb symb-1">FILTER</span>
+                <span className="symbol database-symb symb-2">MAP</span>
+                <span className="symbol database-symb symb-3">REDUCE</span>
+              </div>
+              <div className="card-content">
+                <div className="card-header">
+                  <span className="dot dot-red" />
+                  <span className="dot dot-yellow" />
+                  <span className="dot dot-green" />
+                  <span className="header-filename">mongo_db_init.js</span>
+                </div>
+                <div className="card-body">
+                  <pre>
+                    <code>
+                      <span className="keyword">db</span>.<span className="function">collection</span>(<span className="string">'impact'</span>).<span className="function">aggregate</span>([<br />
+                      &nbsp;&nbsp;{'{'} <span className="keyword">$match</span>: {'{'} status: <span className="string">'scalable'</span> {'}'} {'}'},<br />
+                      &nbsp;&nbsp;{'{'} <span className="keyword">$group</span>: {'{'} _id: <span className="string">'$passion'</span>, total: {'{'} <span className="keyword">$sum</span>: <span className="string">1</span> {'}'} {'}'} {'}'}<br />
+                      ]);
+                    </code>
+                  </pre>
+                </div>
+              </div>
+              <div className="card-shimmer" />
+            </motion.div>
+          </FadeUp>
+
+          <FadeUp delay={0.45} className="skills-tools-card-wrap">
+            <motion.div
+              className="skill-card tools-card"
+              whileHover={{ y: -6 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+            >
+              <div className="skill-icon-wrap" style={{ color: 'var(--text-1)' }}>
+                <Code2 size={22} />
+              </div>
+              <h3>Tools</h3>
+
+              <div className="tool-logos" aria-label="Tools used in projects">
+                <div className="tool-logo-item">
+                  <div className="tool-logo-icon">
+                    <img src="/assets/vs-code_thumb.webp" alt="VS Code" loading="lazy" />
+                  </div>
+                  <div className="tool-logo-name">VS Code</div>
+                </div>
+                <div className="tool-logo-item">
+                  <div className="tool-logo-icon">
+                    <img src="/assets/github_PNG47.webp" alt="Git" loading="lazy" />
+                  </div>
+                  <div className="tool-logo-name">Git</div>
+                </div>
+                <div className="tool-logo-item">
+                  <div className="tool-logo-icon">
+                    <img src="/assets/microsoft-power-bi-logo.webp" alt="PowerBI" loading="lazy" />
+                  </div>
+                  <div className="tool-logo-name">Power BI</div>
+                </div>
+              </div>
+            </motion.div>
+          </FadeUp>
         </div>
       </div>
     </div>
@@ -483,6 +557,14 @@ const projects = [
     title: 'Smart Canteen Management System',
     tagline: 'Digital-first solution to eliminate queues and manual billing errors',
     desc: 'A mobile-based canteen system enabling users to browse menus, place orders, and pay digitally. A Raspberry Pi verifies the digital bill at the counter and triggers automatic receipt printing.',
+    folder: 'rit canteen',
+    images: [
+      'rit canteen.jpeg',
+      'rit.jpeg',
+      'WhatsApp Image 2026-03-20 at 11.38.26 AM.jpeg',
+      'WhatsApp Image 2026-03-20 at 11.38.27 AM.jpeg',
+      'WhatsApp Image 2026-03-20 at 11.38.28 .jpeg',
+    ],
     tech: ['Flutter', 'SQL Server', 'Twilio', 'Raspberry Pi', 'Thermal Printer'],
     features: [
       'Digital ordering & payment flow',
@@ -499,6 +581,13 @@ const projects = [
     title: 'Real-Time Bus Tracking System',
     tagline: 'Track buses live — no expensive GPS hardware needed',
     desc: 'Web app that lets students track college buses in real-time. Drivers share live location via mobile; students see bus positions and ETAs on an interactive map.',
+    folder: 'bus tracker',
+    images: [
+      'WhatsApp Image 2026-03-20 at 1.28.36 .jpeg',
+      'WhatsApp Image 2026-03-20 at 1.28.36 P.jpeg',
+      'WhatsApp Image 2026-03-20 at 1.28.36 PM.jpeg',
+      'WhatsApp Image 2026-03-20 at 1.28.37 PM.jpeg',
+    ],
     tech: ['Firebase', 'Google Maps API', 'Leaflet', 'HTML', 'CSS'],
     features: [
       'Live bus tracking via mobile location sharing',
@@ -515,6 +604,15 @@ const projects = [
     title: 'Elementrixx — IoT Water Quality Monitor',
     tagline: 'Prevent water contamination at the source using real-time IoT monitoring',
     desc: 'IoT system that monitors contamination levels in water bodies via ESP32 sensors. Data is transmitted through MQTT, analyzed in real-time, and alerts locals automatically in native languages.',
+    folder: 'elementrixx',
+    images: [
+      'WhatsApp Image 2026-03-20 at 11..jpeg',
+      'WhatsApp Image 2026-03-20 at 11.38..jpeg',
+      'WhatsApp Image 2026-03-20 at 11.38.30 AM.jpeg',
+      'WhatsApp Image 2026-03-20 at 11.38.31 AM.jpeg',
+      'WhatsApp Image 2026-03-20 at 11.38.32 A.jpeg',
+      'WhatsApp Image 2026-03-20 at 2.56.18 PM.jpeg',
+    ],
     tech: ['ESP32', 'MQTT', 'Firebase', 'SMS Alert System'],
     features: [
       'Real-time sensor data via MQTT protocol',
@@ -537,50 +635,205 @@ const Projects = () => (
     <div className="projects-grid">
       {projects.map((p, i) => (
         <FadeUp key={p.title} delay={i * 0.12}>
-          <motion.div
-            className="project-card"
-            whileHover={{ y: -7, boxShadow: '0 20px 60px rgba(0,0,0,0.12)' }}
-            transition={{ type: 'spring', stiffness: 240, damping: 22 }}
+          <a
+            href={`#/projects/${encodeURIComponent(p.folder)}`}
+            className="project-card-link"
+            aria-label={`Open ${p.title} details`}
           >
-            <div className="pc-header">
-              <span className="project-num">Project {p.num}</span>
-              {p.badge && <span className="pc-badge">{p.badge}</span>}
-              {p.icon}
-            </div>
+            <motion.div
+              className="project-card"
+              whileHover={{ y: -7, boxShadow: '0 20px 60px rgba(0,0,0,0.12)' }}
+              transition={{ type: 'spring', stiffness: 240, damping: 22 }}
+            >
+              <div className="pc-header">
+                <span className="project-num">Project {p.num}</span>
+                {p.badge && <span className="pc-badge">{p.badge}</span>}
+                {p.icon}
+              </div>
 
-            <h3 className="pc-title">{p.title}</h3>
-            <p className="pc-tagline">"{p.tagline}"</p>
-            <p className="pc-desc">{p.desc}</p>
+              <h3 className="pc-title">{p.title}</h3>
+              <p className="pc-tagline">"{p.tagline}"</p>
+              <p className="pc-desc">{p.desc}</p>
 
-            {/* Tech stack */}
-            <div className="tech-tags" style={{ marginTop: '16px' }}>
-              {p.tech.map(t => <span key={t} className="tech-tag">{t}</span>)}
-            </div>
+              {/* Tech stack */}
+              <div className="tech-tags" style={{ marginTop: '16px' }}>
+                {p.tech.map(t => <span key={t} className="tech-tag">{t}</span>)}
+              </div>
 
-            {/* Key features */}
-            <ul className="pc-features">
-              {p.features.map(f => (
-                <li key={f}>
-                  <ChevronRight size={13} className="pc-feat-icon" />
-                  {f}
-                </li>
-              ))}
-            </ul>
+              {/* Key features */}
+              <ul className="pc-features">
+                {p.features.map(f => (
+                  <li key={f}>
+                    <ChevronRight size={13} className="pc-feat-icon" />
+                    {f}
+                  </li>
+                ))}
+              </ul>
 
-            {/* Footer row */}
-            <div className="pc-footer">
-              <span className="pc-role">
-                <span className="pc-role-label">Role</span>
-                {p.role}
-              </span>
-            </div>
-          </motion.div>
+              {/* Footer row */}
+              <div className="pc-footer">
+                <span className="pc-role">
+                  <span className="pc-role-label">Role</span>
+                  {p.role}
+                </span>
+              </div>
+            </motion.div>
+          </a>
         </FadeUp>
       ))}
     </div>
   </section>
 )
 
+
+/* ============================================================
+   PROJECT DETAIL (hash-based, no React Router dependency)
+   ============================================================ */
+const ProjectDetail = ({ project, onBack }) => {
+  if (!project) {
+    return (
+      <section className="project-detail">
+        <div className="project-detail-inner">
+          <div className="hero-content">
+            <h1 className="project-detail-title">Project not found</h1>
+            <p className="project-detail-subtitle">Select a project from “Featured Projects”.</p>
+            <button className="btn btn-secondary" onClick={onBack}>
+              Back to Projects
+            </button>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  const folderEncoded = encodeURIComponent(project.folder)
+  const imgUrls = project.images.map((fn) => `/projects/${folderEncoded}/${encodeURIComponent(fn)}`)
+  const [activeImg, setActiveImg] = useState(0)
+
+  useEffect(() => {
+    setActiveImg(0)
+  }, [project.folder])
+
+  const hasMultiple = imgUrls.length > 1
+  const goPrev = () => {
+    setActiveImg((i) => (i - 1 + imgUrls.length) % imgUrls.length)
+  }
+  const goNext = () => {
+    setActiveImg((i) => (i + 1) % imgUrls.length)
+  }
+
+  return (
+    <section className="project-detail hero" aria-label={`${project.title} details`}>
+      <div className="project-detail-inner hero-inner">
+        <motion.div
+          className="project-detail-left hero-content"
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <div className="hero-label" style={{ marginBottom: 18 }}>
+            <span className="hero-label-line" />
+            Project {project.num}
+          </div>
+
+          <h1 className="project-detail-title">{project.title}</h1>
+          <p className="project-detail-tagline">"{project.tagline}"</p>
+
+          <div className="project-detail-block">
+            <h3>Overview</h3>
+            <p>{project.desc}</p>
+          </div>
+
+          <div className="project-detail-block">
+            <h3>Tech Stack</h3>
+            <div className="tech-tags project-detail-tech">
+              {project.tech.map((t) => (
+                <span key={t} className="tech-tag">
+                  {t}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="project-detail-block">
+            <h3>My Role</h3>
+            <p className="project-detail-role">{project.role}</p>
+            <ul className="project-detail-features">
+              {project.features.map((f) => (
+                <li key={f}>
+                  <ChevronRight size={13} className="pc-feat-icon" />
+                  {f}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="project-detail-actions">
+            <button className="btn btn-secondary" onClick={onBack}>
+              Back to Featured Projects
+            </button>
+          </div>
+        </motion.div>
+
+        <div className="project-detail-visual">
+          <div className="project-carousel" aria-label="Project images carousel">
+            {hasMultiple && (
+              <button
+                type="button"
+                className="project-carousel-btn project-carousel-btn-left"
+                onClick={goPrev}
+                aria-label="Previous image"
+              >
+                <ChevronLeft size={18} />
+              </button>
+            )}
+
+            <motion.div
+              className={`project-carousel-frame${
+                project.folder === 'rit canteen' ? ' project-carousel-frame-canteen' : ''
+              }`}
+              key={imgUrls[activeImg]}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.25 }}
+            >
+              <img
+                src={imgUrls[activeImg]}
+                alt={`${project.title} image ${activeImg + 1}`}
+                loading="lazy"
+              />
+            </motion.div>
+
+            {hasMultiple && (
+              <button
+                type="button"
+                className="project-carousel-btn project-carousel-btn-right"
+                onClick={goNext}
+                aria-label="Next image"
+              >
+                <ChevronRight size={18} />
+              </button>
+            )}
+          </div>
+
+          {imgUrls.length > 1 && (
+            <div className="project-carousel-dots" aria-label="Image navigation">
+              {imgUrls.map((_, idx) => (
+                <button
+                  key={idx}
+                  type="button"
+                  className={`project-carousel-dot${idx === activeImg ? ' active' : ''}`}
+                  onClick={() => setActiveImg(idx)}
+                  aria-label={`Go to image ${idx + 1}`}
+                />
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+  )
+}
 
 /* ============================================================
    CERTIFICATES
@@ -739,8 +992,8 @@ const Experience = () => (
           <h4>Achievements</h4>
           <ul className="achievements-list">
             {[
-              'Solved coding challenges on LeetCode & HackerRank',
-              'Built multiple production-ready full-stack projects',
+              'Solved coding challenges on LeetCode & SkillRack',
+              'Built production-ready full-stack projects',
               'Continuously learning and applying modern technologies',
             ].map((a, i) => (
               <li key={i}>
@@ -773,8 +1026,8 @@ const Contact = () => {
           <FadeLeft>
             <div>
               <p style={{ fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#888', marginBottom: '12px' }}>Email</p>
-              <a href="mailto:yogeshrajan@email.com" className="contact-email">
-                yogeshrajan@email.com
+              <a href="mailto:yogeshrajanv@email.com" className="contact-email">
+                yogeshrajanv@email.com
               </a>
               <p style={{ fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#888', marginBottom: '16px' }}>Socials</p>
               <div className="social-row">
@@ -805,7 +1058,7 @@ const Contact = () => {
                 <p className="term-cmd"><span>$</span> ./contact --target "Yogesh"</p>
                 <p className="term-out">Resolving connection... [OK]</p>
                 <p className="term-cmd"><span>$</span> status</p>
-                <p className="term-out">"🟢 Available for new opportunities!"</p>
+                <p className="term-out">" Available for new opportunities!"</p>
                 <span className="term-cursor">_</span>
               </div>
             </div>
@@ -892,10 +1145,10 @@ const SplashCodeRain = () => {
    SPLASH: Terminal text sequence
    ============================================================ */
 const TERMINAL_LINES = [
-  { text: 'Initializing Portfolio...', delay: 500 },
-  { text: 'Loading Components...', delay: 1150 },
-  { text: 'Compiling assets...', delay: 1800 },
-  { text: 'Ready.', delay: 2300, highlight: true },
+  { text: 'bootstrapping portfolio...', delay: 450 },
+  { text: 'loading components...', delay: 1050 },
+  { text: 'warming animations...', delay: 1650 },
+  { text: 'ready.', delay: 2200, highlight: true },
 ]
 
 const SplashTerminal = () => {
@@ -930,76 +1183,60 @@ const SplashTerminal = () => {
 }
 
 /* ============================================================
-   SPLASH SCREEN – Black + code rain + white Y logo + brackets
+   SPLASH SCREEN – Minimal coding SVG logo splash
    ============================================================ */
+const SPLASH_CODE_BG = [
+  { t: 'const', x: 10, y: 22, d: 0 },
+  { t: '{', x: 22, y: 14, d: 120 },
+  { t: '}', x: 78, y: 18, d: 220 },
+  { t: 'useEffect', x: 68, y: 30, d: 320 },
+  { t: 'return', x: 16, y: 44, d: 420 },
+  { t: '=>', x: 84, y: 40, d: 520 },
+  { t: '<div/>', x: 34, y: 24, d: 620 },
+  { t: 'import', x: 56, y: 52, d: 720 },
+  { t: 'export', x: 40, y: 64, d: 820 },
+  { t: '$', x: 86, y: 64, d: 920 },
+  { t: 'console.log', x: 14, y: 62, d: 1020 },
+  { t: '[]', x: 60, y: 74, d: 1120 },
+]
+
 const Splash = ({ onDone }) => (
   <motion.div
-    className="splash"
+    className="splash splash-minimal"
     initial={{ opacity: 1 }}
     animate={{ opacity: 0 }}
-    transition={{ duration: 1.0, delay: 4.0, ease: 'easeInOut' }}
+    transition={{ duration: 0.7, delay: 3.0, ease: 'easeInOut' }}
     onAnimationComplete={onDone}
   >
-    {/* Code-rain background */}
-    <SplashCodeRain />
-
-    <div className="splash-center">
-      {/* Coding-bracket row: <  [LOGO]  /> */}
-      <div className="splash-bracket-row">
-        <motion.span
-          className="splash-bracket"
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.6, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+    <div className="splash-code-bg" aria-hidden="true">
+      {SPLASH_CODE_BG.map((c, idx) => (
+        <span
+          // eslint-disable-next-line react/no-array-index-key
+          key={idx}
+          className="splash-code-char"
+          style={{ left: `${c.x}%`, top: `${c.y}%`, animationDelay: `${c.d}ms` }}
         >
-          {'<'}
-        </motion.span>
+          {c.t}
+        </span>
+      ))}
+    </div>
 
-        {/* Logo with scan line */}
-        <motion.div
-          className="splash-logo-wrap"
-          initial={{ scale: 0.72, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.9, ease: [0.34, 1.56, 0.64, 1] }}
-        >
-          <div className="splash-logo-glow" />
-          <div className="splash-scan-line" />
-          <motion.div
-            animate={{ scale: [1, 1.045, 1] }}
-            transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
-          >
-            <YLogoWhite size={110} />
-          </motion.div>
-        </motion.div>
-
-        <motion.span
-          className="splash-bracket"
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.6, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-        >
-          {'/>'}
-        </motion.span>
-      </div>
-
-      {/* Terminal */}
+    <div className="splash-minimal-content">
       <motion.div
-        initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-        transition={{ delay: 0.4, duration: 0.5 }}
+        className="splash-minimal-logo"
+        initial={{ scale: 0.84, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       >
-        <SplashTerminal />
+        <YLogoWhite size={175} animateDraw />
       </motion.div>
 
-      {/* Progress bar */}
       <motion.div
-        className="splash-bar"
-        initial={{ opacity: 0, scaleX: 0 }}
-        animate={{ opacity: 1, scaleX: 1 }}
-        style={{ transformOrigin: 'left' }}
-        transition={{ delay: 0.45, duration: 0.5 }}
-      >
-        <div className="splash-progress" />
-      </motion.div>
+        className="splash-minimal-progress"
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: 1 }}
+        transition={{ delay: 0.9, duration: 1.8, ease: 'easeOut' }}
+      />
     </div>
   </motion.div>
 )
@@ -1009,6 +1246,45 @@ const Splash = ({ onDone }) => (
    ============================================================ */
 export default function App() {
   const [ready, setReady] = useState(false)
+  const [route, setRoute] = useState(() => {
+    const h = window.location.hash || ''
+    const m = h.match(/^#\/projects\/(.+)$/)
+    if (!m) return { type: 'home' }
+    return { type: 'project', folder: decodeURIComponent(m[1]) }
+  })
+
+  useEffect(() => {
+    const onHashChange = () => {
+      const h = window.location.hash || ''
+      const m = h.match(/^#\/projects\/(.+)$/)
+      if (!m) return setRoute({ type: 'home' })
+      setRoute({ type: 'project', folder: decodeURIComponent(m[1]) })
+    }
+
+    window.addEventListener('hashchange', onHashChange)
+    return () => window.removeEventListener('hashchange', onHashChange)
+  }, [])
+
+  const activeProject = route.type === 'project'
+    ? projects.find((p) => p.folder === route.folder)
+    : null
+
+  const onBackToProjects = () => {
+    window.location.hash = '#projects'
+    // When switching pages we conditionally render sections; scroll needs to happen
+    // after the `#projects` element is mounted.
+    let tries = 0
+    const attemptScroll = () => {
+      tries += 1
+      const el = document.getElementById('projects')
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        return
+      }
+      if (tries < 20) setTimeout(attemptScroll, 30)
+    }
+    attemptScroll()
+  }
 
   return (
     <>
@@ -1029,22 +1305,28 @@ export default function App() {
 
           {/* Site */}
           <Navbar />
-          <Hero />
-          <div className="divider" />
-          <About />
-          <div className="divider" />
-          <Skills />
-          <div className="divider" />
-          <Projects />
-          <div className="divider" />
-          <Certificates />
-          <div className="divider" />
-          <Experience />
-          <div className="divider" />
-          <Contact />
+          {route.type === 'project' ? (
+            <ProjectDetail project={activeProject} onBack={onBackToProjects} />
+          ) : (
+            <>
+              <Hero />
+              <div className="divider" />
+              <About />
+              <div className="divider" />
+              <Skills />
+              <div className="divider" />
+              <Projects />
+              <div className="divider" />
+              <Certificates />
+              <div className="divider" />
+              <Experience />
+              <div className="divider" />
+              <Contact />
+            </>
+          )}
 
           <footer className="site-footer">
-            <p>© {new Date().getFullYear()} V Yogesh Rajan. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} Yogesh Rajan V. All rights reserved.</p>
           </footer>
         </motion.div>
       )}
