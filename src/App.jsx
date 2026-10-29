@@ -4,32 +4,10 @@ import {
   Github, Linkedin, Instagram, Mail, ExternalLink,
   Download, ChevronRight, ChevronLeft, Code2, Database, Monitor,
   Award, Send, ArrowRight, Menu, X, Terminal, FileText,
-  Utensils, BusFront, Droplets, GitPullRequest
+  Utensils, BusFront, Droplets, GitPullRequest, Cpu, HardHat
 } from 'lucide-react'
 
-/* ============================================================
-   Y LOGO — inline white SVG
-   ============================================================ */
-const paths = [
-  "M188.592957,167.174133 C179.844940,167.130692 171.096786,167.050507 162.349121,167.088135 C161.195602,167.093094 160.044678,167.699631 158.326981,168.366837 C158.160690,169.514786 157.419662,171.147629 157.916306,171.736252 C163.349976,178.176239 168.806595,184.614456 174.597900,190.730347 C180.740921,197.217682 187.404968,203.210770 193.567719,209.680481 C204.185654,220.827240 214.770233,232.017014 225.000961,243.516006 C229.263062,248.306458 235.122971,252.414139 235.032471,260.923279 C235.021027,284.304565 234.988068,307.685883 235.042740,331.067017 C235.046738,332.771057 235.686249,334.473633 236.515686,336.524811 C246.824585,330.950256 257.183624,325.464630 267.390228,319.708618 C268.983826,318.809906 269.883057,316.679932 271.497162,314.822906 C271.749725,314.581665 271.874023,314.286438 271.943329,313.303162 C271.965027,312.878265 271.986725,312.453339 272.010956,311.085114 C272.008911,293.039856 272.006897,274.994568 271.974518,256.208405 C268.216919,250.857651 264.972778,245.040604 260.611298,240.238297 C243.354813,221.237503 225.896210,202.413620 208.186356,183.835068 C202.472107,177.840515 197.916168,170.163467 188.592957,167.174133 z",
-  "M312.359406,168.002945 C309.467560,169.758316 306.086487,171.027496 303.771820,173.356476 C295.480682,181.698959 287.568817,190.417526 279.478668,198.960861 C272.244568,206.600159 264.977997,214.208847 257.696289,221.802795 C255.573990,224.016113 255.536560,226.018951 257.708618,228.287888 C262.067749,232.841370 266.265289,237.549194 270.594025,242.132385 C271.910034,243.525772 273.437500,244.719482 276.013794,247.033829 C280.189728,242.313370 283.959595,237.909821 287.882141,233.646744 C296.708801,224.053833 305.590027,214.510773 314.488281,204.984116 C324.442047,194.327438 334.500702,183.767212 344.306152,172.976410 C345.132446,172.067108 344.387421,169.729965 343.885162,167.274796 C335.133820,167.185318 326.382477,167.049133 317.631134,167.051178 C316.128815,167.051529 314.626617,167.640762 312.359406,168.002945 z",
-  "M246.435791,217.007721 C247.639404,218.009857 248.843018,219.011978 250.248123,220.181870 C251.729065,218.207977 252.631699,216.564438 253.937653,215.357208 C256.544159,212.947800 255.979416,210.677933 253.918030,208.482620 C242.323044,196.134308 230.800797,183.713837 218.997742,171.566711 C214.357758,166.791473 208.345490,167.479950 201.587204,168.698654 C216.768005,185.052231 231.362793,200.774506 246.435791,217.007721 z"
-]
 
-const YLogoWhite = ({ size = 120, animateDraw = false }) => {
-  return (
-    <svg width={size} height={size} viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
-      {paths.map((d, i) => (
-        <path 
-          key={i} 
-          d={d} 
-          className={animateDraw ? "splash-draw-path" : ""}
-          fill={animateDraw ? "transparent" : "white"}
-        />
-      ))}
-    </svg>
-  )
-}
 
 /* ============================================================
    PARTICLE CANVAS – floating dots + connecting lines
@@ -194,9 +172,6 @@ const Navbar = () => {
     <nav className={`nav ${scrolled ? 'scrolled' : ''}`}>
       <div className="nav-inner">
         <a href="#home" className="nav-logo">
-          <div className="nav-logo-mark">
-            <YLogoWhite size={26} />
-          </div>
           <span>YOGESH RAJAN V</span>
         </a>
 
@@ -257,11 +232,8 @@ const Hero = () => {
 
   return (
     <section id="home" className="hero">
-      {/* Watermark */}
-      <div className="hero-watermark" aria-hidden="true">Y</div>
-
       <div className="hero-inner">
-        {/* Left: Content */}
+        {/* Content */}
         <motion.div
           className="hero-content"
           variants={stagger.container}
@@ -322,37 +294,6 @@ const Hero = () => {
             </motion.a>
           </motion.div>
         </motion.div>
-
-        {/* Right: Code Card */}
-        <motion.div
-          className="hero-visual"
-          initial={{ opacity: 0, x: 50, scale: 0.96 }}
-          animate={{ opacity: 1, x: 0, scale: 1 }}
-          transition={{ duration: 0.9, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <div className="hero-code-card">
-            <div className="code-dots">
-              <span className="code-dot" />
-              <span className="code-dot" />
-              <span className="code-dot" />
-            </div>
-            <code>
-              <span className="code-line"><span className="code-comment">// App.jsx</span></span>
-              <span className="code-line">&nbsp;</span>
-              <span className="code-line"><span className="code-keyword">export default function</span> <span className="code-fn">Portfolio</span>() {'{'}</span>
-              <span className="code-line">&nbsp;&nbsp;<span className="code-keyword">return</span> (</span>
-              <span className="code-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span className="code-fn">Developer</span></span>
-              <span className="code-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name=<span className="code-str">"Yogesh Rajan V"</span></span>
-              <span className="code-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;role=<span className="code-str">"Full Stack Engineer"</span></span>
-              <span className="code-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;skills={`{['React', 'Node', 'IoT']}`}</span>
-              <span className="code-line">&nbsp;&nbsp;&nbsp;&nbsp;/&gt;</span>
-              <span className="code-line">&nbsp;&nbsp;)</span>
-              <span className="code-line">{'}'}</span>
-              <span className="code-line">&nbsp;</span>
-              <span className="code-line"><span className="code-comment">/* Code beautifully to build beautifully. */</span></span>
-            </code>
-          </div>
-        </motion.div>
       </div>
     </section>
   )
@@ -373,46 +314,6 @@ const About = () => (
           I am constantly improving my skills by building projects, exploring new technologies, and solving real-world problems. My goal is to become a highly skilled software engineer capable of developing scalable and impactful applications.
         </p>
       </FadeLeft>
-
-      {/* Right side: Math-Code Hybrid Card */}
-      <FadeUp delay={0.15} className="about-visual-container">
-        <motion.div 
-          className="math-code-card"
-          whileHover={{ rotateY: 5, rotateX: -5, scale: 1.02 }}
-          transition={{ type: 'spring', stiffness: 200, damping: 20 }}
-        >
-          <div className="card-symbols" aria-hidden="true">
-            <span className="symbol symb-1">∑</span>
-            <span className="symbol symb-2">∫</span>
-            <span className="symbol symb-3">λ</span>
-            <span className="symbol symb-4">π</span>
-            <span className="symbol symb-5">δ</span>
-            <span className="symbol symb-6">√</span>
-          </div>
-          <div className="card-content">
-            <div className="card-header">
-              <span className="dot dot-red" />
-              <span className="dot dot-yellow" />
-              <span className="dot dot-green" />
-              <span className="header-filename">algorithm_logic.py</span>
-            </div>
-            <div className="card-body">
-              <pre>
-                <code>
-                  <span className="keyword">def</span> <span className="function">analyze_impact</span>(code, passion):<br/>
-                  &nbsp;&nbsp;<span className="comment"># Calculus of Innovation</span><br/>
-                  &nbsp;&nbsp;result = ∫(passion * ∂(code)/∂t) dt<br/>
-                  &nbsp;&nbsp;<span className="keyword">return</span> <span className="string">"Impactful Software"</span><br/>
-                  <br/>
-                  <span className="comment"># Summing up years of growth</span><br/>
-                  growth = ∑(learning_day <span className="keyword">for</span> day <span className="keyword">in</span> years)
-                </code>
-              </pre>
-            </div>
-          </div>
-          <div className="card-shimmer" />
-        </motion.div>
-      </FadeUp>
     </div>
   </section>
 )
@@ -437,6 +338,11 @@ const Skills = () => {
       icon: <Database size={22} color="#555" />,
       items: ['MySQL', 'Firebase'],
     },
+    {
+      cat: 'Tools',
+      icon: <Code2 size={22} color="#555" />,
+      items: ['VS Code', 'Git', 'Power BI'],
+    },
   ]
 
   return (
@@ -448,7 +354,8 @@ const Skills = () => {
             const symbols = {
               'Frontend': '</>',
               'Backend': '>_',
-              'Database': '{}'
+              'Database': '{}',
+              'Tools': '⚡'
             }
             return (
               <FadeUp key={s.cat} delay={i * 0.1}>
@@ -473,76 +380,6 @@ const Skills = () => {
             )
           })}
         </div>
-
-        {/* Database Schema Hybrid Card at the bottom */}
-        <div className="skills-bottom-grid">
-          <FadeUp delay={0.3} className="about-visual-container skills-mongo-left">
-            <motion.div
-              className="math-code-card mongo-card"
-              whileHover={{ rotateY: -3, rotateX: 3, scale: 1.01 }}
-              transition={{ type: 'spring', stiffness: 200, damping: 20 }}
-            >
-              <div className="card-symbols" aria-hidden="true">
-                <span className="symbol database-symb symb-1">FILTER</span>
-                <span className="symbol database-symb symb-2">MAP</span>
-                <span className="symbol database-symb symb-3">REDUCE</span>
-              </div>
-              <div className="card-content">
-                <div className="card-header">
-                  <span className="dot dot-red" />
-                  <span className="dot dot-yellow" />
-                  <span className="dot dot-green" />
-                  <span className="header-filename">mongo_db_init.js</span>
-                </div>
-                <div className="card-body">
-                  <pre>
-                    <code>
-                      <span className="keyword">db</span>.<span className="function">collection</span>(<span className="string">'impact'</span>).<span className="function">aggregate</span>([<br />
-                      &nbsp;&nbsp;{'{'} <span className="keyword">$match</span>: {'{'} status: <span className="string">'scalable'</span> {'}'} {'}'},<br />
-                      &nbsp;&nbsp;{'{'} <span className="keyword">$group</span>: {'{'} _id: <span className="string">'$passion'</span>, total: {'{'} <span className="keyword">$sum</span>: <span className="string">1</span> {'}'} {'}'} {'}'}<br />
-                      ]);
-                    </code>
-                  </pre>
-                </div>
-              </div>
-              <div className="card-shimmer" />
-            </motion.div>
-          </FadeUp>
-
-          <FadeUp delay={0.45} className="skills-tools-card-wrap">
-            <motion.div
-              className="skill-card tools-card"
-              whileHover={{ y: -6 }}
-              transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-            >
-              <div className="skill-icon-wrap" style={{ color: 'var(--text-1)' }}>
-                <Code2 size={22} />
-              </div>
-              <h3>Tools</h3>
-
-              <div className="tool-logos" aria-label="Tools used in projects">
-                <div className="tool-logo-item">
-                  <div className="tool-logo-icon">
-                    <img src="/assets/vs-code_thumb.webp" alt="VS Code" loading="lazy" />
-                  </div>
-                  <div className="tool-logo-name">VS Code</div>
-                </div>
-                <div className="tool-logo-item">
-                  <div className="tool-logo-icon">
-                    <img src="/assets/github_PNG47.webp" alt="Git" loading="lazy" />
-                  </div>
-                  <div className="tool-logo-name">Git</div>
-                </div>
-                <div className="tool-logo-item">
-                  <div className="tool-logo-icon">
-                    <img src="/assets/microsoft-power-bi-logo.webp" alt="PowerBI" loading="lazy" />
-                  </div>
-                  <div className="tool-logo-name">Power BI</div>
-                </div>
-              </div>
-            </motion.div>
-          </FadeUp>
-        </div>
       </div>
     </div>
   )
@@ -559,11 +396,11 @@ const projects = [
     desc: 'A mobile-based canteen system enabling users to browse menus, place orders, and pay digitally. A Raspberry Pi verifies the digital bill at the counter and triggers automatic receipt printing.',
     folder: 'rit canteen',
     images: [
-      'rit canteen.jpeg',
-      'rit.jpeg',
       'WhatsApp Image 2026-03-20 at 11.38.26 AM.jpeg',
+      'rit.jpeg',
       'WhatsApp Image 2026-03-20 at 11.38.27 AM.jpeg',
       'WhatsApp Image 2026-03-20 at 11.38.28 .jpeg',
+      'rit canteen.jpeg',
     ],
     tech: ['Flutter', 'SQL Server', 'Twilio', 'Raspberry Pi', 'Thermal Printer'],
     features: [
@@ -583,9 +420,9 @@ const projects = [
     desc: 'Web app that lets students track college buses in real-time. Drivers share live location via mobile; students see bus positions and ETAs on an interactive map.',
     folder: 'bus tracker',
     images: [
-      'WhatsApp Image 2026-03-20 at 1.28.36 .jpeg',
-      'WhatsApp Image 2026-03-20 at 1.28.36 P.jpeg',
       'WhatsApp Image 2026-03-20 at 1.28.36 PM.jpeg',
+      'WhatsApp Image 2026-03-20 at 1.28.36 P.jpeg',
+      'WhatsApp Image 2026-03-20 at 1.28.36 .jpeg',
       'WhatsApp Image 2026-03-20 at 1.28.37 PM.jpeg',
     ],
     tech: ['Firebase', 'Google Maps API', 'Leaflet', 'HTML', 'CSS'],
@@ -606,11 +443,12 @@ const projects = [
     desc: 'IoT system that monitors contamination levels in water bodies via ESP32 sensors. Data is transmitted through MQTT, analyzed in real-time, and alerts locals automatically in native languages.',
     folder: 'elementrixx',
     images: [
-      'WhatsApp Image 2026-03-20 at 11..jpeg',
+      
       'WhatsApp Image 2026-03-20 at 11.38..jpeg',
       'WhatsApp Image 2026-03-20 at 11.38.30 AM.jpeg',
       'WhatsApp Image 2026-03-20 at 11.38.31 AM.jpeg',
       'WhatsApp Image 2026-03-20 at 11.38.32 A.jpeg',
+      'WhatsApp Image 2026-03-20 at 11..jpeg',
       'WhatsApp Image 2026-03-20 at 2.56.18 PM.jpeg',
     ],
     tech: ['ESP32', 'MQTT', 'Firebase', 'SMS Alert System'],
@@ -622,7 +460,64 @@ const projects = [
     ],
     role: ' Backend Developer & IoT Engineer',
     badge: null,
-    icon: <Droplets size={40} className="project-corner-icon" />
+    icon: <Droplets size={40} className="project-corner-icon" />,
+  },
+  {
+    num: '04',
+    title: 'Quantum AI Predictive Maintenance System',
+    tagline: 'Forecasting equipment failure using quantum machine learning on sensor data',
+    desc: 'A predictive maintenance system that forecasts hardware failure and Remaining Useful Life (RUL) for laptops and smartphones using a Quantum Support Vector Machine (QSVM) trained on the AI4I 2020 industrial dataset. Real sensor readings are mapped onto the dataset\'s feature schema to detect anomalies, classify device health as Good/Warning/Critical, and estimate RUL. Results are displayed on a live Streamlit dashboard.',
+    folder: 'Predictive maintenance',
+    images: [
+      '1785766823532.jpg',
+      '1785766824992.jpg',
+      '1785766889648.jpg',
+      '1785766891278.jpg',
+      '1785766891830.jpg',
+      '1785766921628.jpg',
+      '1785766921727.jpg',
+      '1785766922084.jpg',
+      '1785766924551.jpg',
+      '1785766926098.jpg',
+    ],
+    tech: ['Qiskit (QSVM)', 'Python', 'scikit-learn', 'Streamlit', 'psutil', 'phyphox', 'AI4I 2020 Dataset'],
+    features: [
+      'Sensor-to-feature mapping for laptop & phone telemetry',
+      'Classical SVM vs quantum kernel (QSVM) comparison',
+      'Device health classification: Good / Warning / Critical',
+      'Live Streamlit dashboard with RUL estimates',
+    ],
+    role: ' Data & ML Engineer',
+    badge: null,
+    icon: <Cpu size={40} className="project-corner-icon" />,
+  },
+  {
+    num: '05',
+    title: 'AI-Driven Construction Safety & BOCW Compliance',
+    tagline: 'Real-time Vision Intelligence for Site Safety',
+    desc: 'A real-time safety monitoring system addressing manual PPE inspection gaps and enforcing the Building and Other Construction Workers (BOCW) Act 1996. Uses YOLO object detection on live IP camera feeds to identify PPE violations and flag workers entering danger zones. Violations are analyzed by the Groq API for natural-language incident reporting and pushed to supervisors via Telegram alerts.',
+    folder: 'Construction Compliance',
+    images: [
+      'WhatsApp Image 2026-10-29 at 6.46.03 PM.jpeg',
+      'WhatsApp Image 2026-10-29 at 6.46.03 PM (1).jpeg',
+      'WhatsApp Image 2026-10-29 at 6.46.04 PM.jpeg',
+      'WhatsApp Image 2026-10-29 at 6.46.04 PM (1).jpeg',
+      'WhatsApp Image 2026-10-29 at 6.46.04 PM (2).jpeg',
+      'WhatsApp Image 2026-10-29 at 6.46.04 PM (3).jpeg',
+      'WhatsApp Image 2026-10-29 at 6.46.05 PM.jpeg',
+      'WhatsApp Image 2026-10-29 at 6.46.05 PM (1).jpeg',
+      'WhatsApp Image 2026-10-29 at 6.46.05 PM (2).jpeg',
+    ],
+    tech: ['YOLO', 'OpenCV', 'Groq API', 'Streamlit', 'Telegram Bot API', 'Pandas', 'IP Cameras'],
+    features: [
+      'PPE detection pipeline on live IP camera streams',
+      'Danger-zone allocation logic for restricted-area entry',
+      'Groq API integration for real-time violation reporting',
+      'Instant Telegram alerts to site supervisors',
+    ],
+    role: ' Computer Vision & Backend Developer',
+    badge: '🏆 2nd Place Hackathon',
+    icon: <HardHat size={40} className="project-corner-icon" />,
   },
 ]
 
@@ -723,10 +618,11 @@ const ProjectDetail = ({ project, onBack }) => {
   }
 
   return (
-    <section className="project-detail hero" aria-label={`${project.title} details`}>
-      <div className="project-detail-inner hero-inner">
+    <section className="project-detail" aria-label={`${project.title} details`}>
+      <div className="project-detail-inner">
+        {/* LEFT: text content */}
         <motion.div
-          className="project-detail-left hero-content"
+          className="project-detail-left"
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
@@ -1046,23 +942,6 @@ const Contact = () => {
                 ))}
               </div>
             </div>
-
-            {/* Terminal Creative Design Window Move */}
-            <div className="about-terminal" style={{ marginTop: '48px' }}>
-              <div className="term-header">
-                <span className="term-dot get-red" />
-                <span className="term-dot get-yellow" />
-                <span className="term-dot get-green" />
-              </div>
-              <div className="term-body">
-                <p className="term-cmd"><span>$</span> ./contact --target "Yogesh"</p>
-                <p className="term-out">Resolving connection... [OK]</p>
-                <p className="term-cmd"><span>$</span> status</p>
-                <p className="term-out">" Available for new opportunities!"</p>
-                <span className="term-cursor">_</span>
-              </div>
-            </div>
-
           </FadeLeft>
 
           <FadeUp delay={0.15}>
@@ -1099,153 +978,12 @@ const Contact = () => {
   )
 }
 
-/* ============================================================
-   SPLASH: Code-Rain Canvas (matrix falling characters)
-   ============================================================ */
-const SplashCodeRain = () => {
-  const ref = useRef(null)
-  useEffect(() => {
-    const canvas = ref.current
-    const ctx = canvas.getContext('2d')
-    let id, frame = 0
-    const CHARS = '01{}[]<>/=;.|*+~&$@#!'
-    const FS = 13, CW = 26
-    const resize = () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight }
-    resize()
-    window.addEventListener('resize', resize)
-    let cols = Math.floor(canvas.width / CW)
-    let heads = Array.from({ length: cols }, () => -Math.floor(Math.random() * 40))
-    const tick = () => {
-      frame++
-      if (frame % 2 === 0) {
-        ctx.fillStyle = 'rgba(0,0,0,0.07)'
-        ctx.fillRect(0, 0, canvas.width, canvas.height)
-        ctx.font = `${FS}px "JetBrains Mono", monospace`
-        cols = Math.floor(canvas.width / CW)
-        if (heads.length !== cols) heads = Array.from({ length: cols }, () => -Math.floor(Math.random() * 40))
-        heads.forEach((y, i) => {
-          if (y < 0) { heads[i]++; return }
-          const char = CHARS[Math.floor(Math.random() * CHARS.length)]
-          const x = i * CW
-          ctx.fillStyle = 'rgba(255,255,255,0.75)'
-          ctx.fillText(char, x, y * FS)
-          if (y * FS > canvas.height && Math.random() > 0.978) heads[i] = -Math.floor(Math.random() * 30)
-          else heads[i]++
-        })
-      }
-      id = requestAnimationFrame(tick)
-    }
-    tick()
-    return () => { cancelAnimationFrame(id); window.removeEventListener('resize', resize) }
-  }, [])
-  return <canvas ref={ref} id="splash-canvas" style={{ opacity: 0.18 }} />
-}
 
-/* ============================================================
-   SPLASH: Terminal text sequence
-   ============================================================ */
-const TERMINAL_LINES = [
-  { text: 'bootstrapping portfolio...', delay: 450 },
-  { text: 'loading components...', delay: 1050 },
-  { text: 'warming animations...', delay: 1650 },
-  { text: 'ready.', delay: 2200, highlight: true },
-]
-
-const SplashTerminal = () => {
-  const [visibleLines, setVisibleLines] = useState([])
-  useEffect(() => {
-    const timers = TERMINAL_LINES.map((line, i) =>
-      setTimeout(() => setVisibleLines(prev => [...prev, i]), line.delay)
-    )
-    return () => timers.forEach(clearTimeout)
-  }, [])
-  const activeIdx = visibleLines.length - 1
-  return (
-    <div className="splash-terminal">
-      {TERMINAL_LINES.map((line, i) =>
-        visibleLines.includes(i) && (
-          <motion.div
-            key={i} className="splash-terminal-line"
-            initial={{ opacity: 0, x: -10 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.3, ease: 'easeOut' }}
-          >
-            <span className="splash-terminal-prompt">{'>'}</span>
-            <span className={`splash-terminal-text${i < activeIdx || line.highlight ? ' done' : ''}`}>
-              {line.text}
-            </span>
-            {i === activeIdx && <span className="splash-terminal-cursor" />}
-          </motion.div>
-        )
-      )}
-    </div>
-  )
-}
-
-/* ============================================================
-   SPLASH SCREEN – Minimal coding SVG logo splash
-   ============================================================ */
-const SPLASH_CODE_BG = [
-  { t: 'const', x: 10, y: 22, d: 0 },
-  { t: '{', x: 22, y: 14, d: 120 },
-  { t: '}', x: 78, y: 18, d: 220 },
-  { t: 'useEffect', x: 68, y: 30, d: 320 },
-  { t: 'return', x: 16, y: 44, d: 420 },
-  { t: '=>', x: 84, y: 40, d: 520 },
-  { t: '<div/>', x: 34, y: 24, d: 620 },
-  { t: 'import', x: 56, y: 52, d: 720 },
-  { t: 'export', x: 40, y: 64, d: 820 },
-  { t: '$', x: 86, y: 64, d: 920 },
-  { t: 'console.log', x: 14, y: 62, d: 1020 },
-  { t: '[]', x: 60, y: 74, d: 1120 },
-]
-
-const Splash = ({ onDone }) => (
-  <motion.div
-    className="splash splash-minimal"
-    initial={{ opacity: 1 }}
-    animate={{ opacity: 0 }}
-    transition={{ duration: 0.7, delay: 3.0, ease: 'easeInOut' }}
-    onAnimationComplete={onDone}
-  >
-    <div className="splash-code-bg" aria-hidden="true">
-      {SPLASH_CODE_BG.map((c, idx) => (
-        <span
-          // eslint-disable-next-line react/no-array-index-key
-          key={idx}
-          className="splash-code-char"
-          style={{ left: `${c.x}%`, top: `${c.y}%`, animationDelay: `${c.d}ms` }}
-        >
-          {c.t}
-        </span>
-      ))}
-    </div>
-
-    <div className="splash-minimal-content">
-      <motion.div
-        className="splash-minimal-logo"
-        initial={{ scale: 0.84, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      >
-        <YLogoWhite size={175} animateDraw />
-      </motion.div>
-
-      <motion.div
-        className="splash-minimal-progress"
-        initial={{ scaleX: 0 }}
-        animate={{ scaleX: 1 }}
-        transition={{ delay: 0.9, duration: 1.8, ease: 'easeOut' }}
-      />
-    </div>
-  </motion.div>
-)
 
 /* ============================================================
    APP ROOT
    ============================================================ */
 export default function App() {
-  const [ready, setReady] = useState(false)
   const [route, setRoute] = useState(() => {
     const h = window.location.hash || ''
     const m = h.match(/^#\/projects\/(.+)$/)
@@ -1271,8 +1009,6 @@ export default function App() {
 
   const onBackToProjects = () => {
     window.location.hash = '#projects'
-    // When switching pages we conditionally render sections; scroll needs to happen
-    // after the `#projects` element is mounted.
     let tries = 0
     const attemptScroll = () => {
       tries += 1
@@ -1287,49 +1023,36 @@ export default function App() {
   }
 
   return (
-    <>
-      <AnimatePresence>
-        {!ready && <Splash onDone={() => setReady(true)} />}
-      </AnimatePresence>
+    <div className="app-wrapper">
+      {/* Fixed decorative layers */}
+      <div className="grid-bg" aria-hidden="true" />
+      <ParticleCanvas />
 
-      {ready && (
-        <motion.div
-          className="app-wrapper"
-          initial={{ opacity: 0, filter: 'blur(12px)' }}
-          animate={{ opacity: 1, filter: 'blur(0px)' }}
-          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-        >
-          {/* Fixed decorative layers */}
-          <div className="grid-bg" aria-hidden="true" />
-          <ParticleCanvas />
-
-          {/* Site */}
-          <Navbar />
-          {route.type === 'project' ? (
-            <ProjectDetail project={activeProject} onBack={onBackToProjects} />
-          ) : (
-            <>
-              <Hero />
-              <div className="divider" />
-              <About />
-              <div className="divider" />
-              <Skills />
-              <div className="divider" />
-              <Projects />
-              <div className="divider" />
-              <Certificates />
-              <div className="divider" />
-              <Experience />
-              <div className="divider" />
-              <Contact />
-            </>
-          )}
-
-          <footer className="site-footer">
-            <p>© {new Date().getFullYear()} Yogesh Rajan V. All rights reserved.</p>
-          </footer>
-        </motion.div>
+      {/* Site */}
+      <Navbar />
+      {route.type === 'project' ? (
+        <ProjectDetail project={activeProject} onBack={onBackToProjects} />
+      ) : (
+        <>
+          <Hero />
+          <div className="divider" />
+          <About />
+          <div className="divider" />
+          <Skills />
+          <div className="divider" />
+          <Projects />
+          <div className="divider" />
+          <Certificates />
+          <div className="divider" />
+          <Experience />
+          <div className="divider" />
+          <Contact />
+        </>
       )}
-    </>
+
+      <footer className="site-footer">
+        <p>© {new Date().getFullYear()} Yogesh Rajan V. All rights reserved.</p>
+      </footer>
+    </div>
   )
 }
